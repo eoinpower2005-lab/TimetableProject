@@ -11,7 +11,7 @@ public class LoginTest {
         int userID = userInput.nextInt();
         userInput.nextLine();
 
-        System.out.print("Pass: ");
+        System.out.print("Password: ");
         String password = userInput.nextLine();
 
         lm.setPassword(userID, password);
@@ -19,7 +19,7 @@ public class LoginTest {
         boolean login = lm.loginAuthentication(userID, password);
 
         if (login) {
-            System.out.println("Login Successful Okay");
+            System.out.println("Login Successful");
         } else {
             System.out.println("Login Failed. UserID or Password may be incorrect");
         }
