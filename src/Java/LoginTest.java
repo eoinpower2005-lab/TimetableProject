@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class LoginTest {
     public static void main(String[] args) {
-        Login l1 = new Login(24438081, "limerick");
+        Login l1 = new Login(24438081, "Tipperary");
 
         LoginManager lm = new LoginManager();
 
