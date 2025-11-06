@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class LoginTest {
     public static void main(String[] args) {
-        Login l1 = new Login(24438081, "Tipperary");
+        Login l1 = new Login(24438081, "Limerick");
 
         LoginManager lm = new LoginManager();
 
@@ -19,7 +19,7 @@ public class LoginTest {
         boolean login = lm.loginAuthentication(userID, password);
 
         if (login) {
-            System.out.println("Login Successful");
+            System.out.println("Login Successful Okay");
         } else {
             System.out.println("Login Failed. UserID or Password may be incorrect");
         }
