@@ -11,7 +11,7 @@ public class LoginTest {
         int userID = userInput.nextInt();
         userInput.nextLine();
 
-        System.out.print("Password 200 ");
+        System.out.print("Password: ");
         String password = userInput.nextLine();
 
         lm.setPassword(userID, password);
