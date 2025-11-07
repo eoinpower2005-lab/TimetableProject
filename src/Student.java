@@ -1,6 +1,6 @@
 public class Student extends User{
 
-    public Student(int id, String name, String email) {
-        super(id, name, email);
+    public Student(int userid, String password, String name, String email, String role) {
+        super(userid, password, name, email, role);
     }
 }

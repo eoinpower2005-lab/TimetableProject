@@ -1,21 +1,27 @@
+import java.util.List;
+import java.util.Scanner;
+
 public class Login {
-    private int userid;
-    private String password;
 
-    public Login(int userid, String password) {
-        this.userid = userid;
-        this.password = password;
-    }
+    LoginManager l1 = new LoginManager();
+    boolean authenticated = false;
 
-    public int getUserid() {
-        return userid;
-    }
+    public boolean login(List<User> users) {
+        while (!authenticated) {
+            Scanner in = new Scanner(System.in);
+            System.out.print("Enter UserID: ");
+            int userID = in.nextInt();
+            in.nextLine();
 
-    public void setUserid(int userid) {
-        this.userid = userid;
-    }
+            System.out.print("Enter Password: ");
+            String password = in.nextLine();
 
-    public String toString() {
-        return "User: " + userid + "\nPassword: " + password;
+            authenticated = l1.authenticate(userID, password);
+
+            if (!authenticated) {
+                System.out.println("Login Failed. Invalid UserID or password. Try again.");
+            }
+        }
+        return true;
     }
 }
