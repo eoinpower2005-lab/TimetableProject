@@ -1,4 +1,4 @@
-public class User {
+public abstract class User {
     private int userid;
     private String password;
     private String name;
@@ -12,6 +12,8 @@ public class User {
         this.email = email;
         this.role = role;
     }
+
+    public abstract boolean canModifyTimetable();
 
     public void setId(int userid) {
         this.userid = userid;
