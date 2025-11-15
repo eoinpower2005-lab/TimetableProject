@@ -4,13 +4,26 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * responsible for reading users from a csv file and authenticating login
+ */
 public class LoginManager {
     private List<User> users;
 
+    /**
+     * no-arg constructor that loads all data from csv files into a list called users
+     */
     public LoginManager() {
         this.users = loadCsvData("src/Files/Users.csv");
     }
 
+    /**
+     * loads data from a csv file
+     * constructs different user objects which is determined by the role
+     * user objects added to a list of users
+     * @param filename path reference of the csv file being read
+     * @return returns a list of users read from the csv file
+     */
     public static List<User> loadCsvData(String filename) {
         List<User> users = new ArrayList<>();
 
@@ -40,6 +53,12 @@ public class LoginManager {
         return users;
     }
 
+    /**
+     * authenticates user login attempts by comparing the entered userid and password to the stored data.
+     * @param userid the userid entered at login
+     * @param password the password entered at login
+     * @return returns true or false depending on login outcome
+     */
     public boolean authenticate(int userid, String password) {
         for (User user : users) {
             if (user.getId() == userid && user.getPassword().equals(password)) {
@@ -50,6 +69,10 @@ public class LoginManager {
         return false;
     }
 
+    /**
+     * returns the list of users loaded from the csv file
+     * @return returns list of users loaded
+     */
     public List<User> getUsers() {
         return users;
     }
