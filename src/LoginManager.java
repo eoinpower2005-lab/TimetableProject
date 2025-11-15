@@ -43,7 +43,7 @@ public class LoginManager {
     public boolean authenticate(int userid, String password) {
         for (User user : users) {
             if (user.getId() == userid && user.getPassword().equals(password)) {
-                System.out.println("Login Successful. Welcome " + user.getName() + "!");
+                System.out.println("Login Successful. Welcome " + user.getName() + "! Role: " + user.getRole());
                 return true;
             }
         }
