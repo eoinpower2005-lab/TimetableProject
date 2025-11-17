@@ -13,6 +13,7 @@ public class Login {
 
     /**
      * prompts the user to enter their correct details until authentication succeeds
+     *
      * @param users list of users loaded from a csv file
      * @return true when login succeeds
      */
