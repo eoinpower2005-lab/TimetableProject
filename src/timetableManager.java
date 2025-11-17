@@ -1,5 +1,5 @@
 /**
- * Manages the collection of timetable slots for the system.
+ * This class manages the collection of timetable slots for the system.
  * timetableManager stores timetableSlot, adding and removing them,
  * and checking for conflicts such as double bookings of lecturers,
  * students and rooms.
