@@ -6,4 +6,11 @@
  * a module is assigned a lecturer
  */
 public class Module {
+    private String moduleCode;
+    private String moduleName;
+    private int lectureHours;
+    private int labHours;
+    private int tutorialHours;
+
+    private Lecturer lecturer;
 }
