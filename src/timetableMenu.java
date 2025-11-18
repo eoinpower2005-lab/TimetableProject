@@ -1,2 +1,2 @@
-public class TimeTableMenu {
+public class timetableMenu {
 }
