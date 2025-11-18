@@ -8,10 +8,10 @@ public class Rooms {
     private final int capacity; //300
     private String RoomType;//lecture hall
     private boolean isAvailable;
-    private static final String[] ValidTypes = {"Lecture Hall", "Lab Room", "Tutorial Room"};
+    private static final String[] ValidTypes = {"Lecture Room", "Lab Room", "Tutorial Room"};
 
     /**
-     * Adds a RoomId, capacity, RoomType. eg CSG001, 300, Lecture Hall
+     * Adds a RoomId, capacity, RoomType. eg CSG001, 300, Lecture Room
      * @param RoomId The id of the room
      * @param capacity The capacity of the room
      * @param RoomType The room type
