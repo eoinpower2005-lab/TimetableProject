@@ -13,7 +13,7 @@ public class StudentGroup {
     private int year;
     private int semester;
     private String groupType;
-    private int groupNum;
+    private int groupSize ;
 
     public StudentGroup(String groupId, String programmeId, String moduleCode, int year, int semester, String groupType, int groupSize) {
         this.groupId = groupId;
@@ -22,7 +22,7 @@ public class StudentGroup {
         this.year = year;
         this.semester = semester;
         this.groupType = groupType;
-        this.groupNum = groupSize;
+        this.groupSize = groupSize;
 
     }
     public String getGroupId() {
@@ -44,7 +44,7 @@ public class StudentGroup {
         return groupType;
     }
     public int getGroupSize() {
-        return groupNum;
+        return groupSize;
     }
 
 
