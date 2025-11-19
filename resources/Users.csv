@@ -1,4 +1,0 @@
-user_id, password, name, email, role
-24438081, adminlog1, Eoin Power, eoinuniversity@gmail.com, Admin
-11223344, studentlog1, John Mullane, John.yahoo@mail.com, Student
-09876543, lecturer1, Katherine, Katherine.work@gmail.com, Lecturer
