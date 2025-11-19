@@ -6,5 +6,18 @@
  * Stores programme information (programmeId, programmeName, programmeModule)
  */
 public class Programme {
+    private String programmeId;
+    private String programmeName;
+
+    public Programme(String programmeId, String programmeName) {
+        this.programmeId = programmeId;
+        this.programmeName = programmeName;
+    }
+    public String getProgrammeId() {
+        return programmeId;
+    }
+    public String getProgrammeName() {
+        return programmeName;
+    }
 
 }
