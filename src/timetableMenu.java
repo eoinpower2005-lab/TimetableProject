@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 public class timetableMenu {
-    private final TimetableManager timetableManager;
+    private final timetableManager timetableManager;
     private final Scanner scanner;
 
-    public timetableMenu(TimetableManager timetableManager, Scanner scanner) {
+    public timetableMenu(timetableManager timetableManager, Scanner scanner) {
         this.timetableManager = timetableManager;
-        this.scanner = new Scanner(System.in);
+        this.scanner = scanner;
     }
 
     public void displayMenu(User user) {
@@ -32,7 +32,8 @@ public class timetableMenu {
             System.out.println("4. View Room Timetable");
             System.out.println("5. Exit");
 
-            int userInput = new Scanner(System.in).nextInt();
+            int userInput = scanner.nextInt();
+            scanner.nextLine();
 
             if (userInput == 1) {
                 viewStudentTimetable(student);
@@ -52,7 +53,8 @@ public class timetableMenu {
 
     private void viewStudentTimetable(Student student) {
         System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
-        int semesterInput = new Scanner(System.in).nextInt();
+        int semesterInput = scanner.nextInt();
+        scanner.nextLine();
 
         List<TimetableSlot> timetableSlots = timetableManager.getStudentSlots(student, semesterInput);
         printTimetableSlots(timetableSlots);
@@ -68,7 +70,9 @@ public class timetableMenu {
             System.out.println("4. View Room Timetable");
             System.out.println("5. Exit");
 
-            int userInput = new Scanner(System.in).nextInt();
+            int userInput = scanner.nextInt();
+            scanner.nextLine();
+
             if (userInput == 1) {
                 viewLecturerTimetable(lecturer);
             } else if (userInput == 2) {
@@ -87,7 +91,8 @@ public class timetableMenu {
 
     private void viewLecturerTimetable(Lecturer lecturer) {
         System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
-        int semesterInput = new Scanner(System.in).nextInt();
+        int semesterInput = scanner.nextInt();
+        scanner.nextLine();
 
         List<TimetableSlot> timetableSlots = timetableManager.getLecturerSlots(lecturer, semesterInput);
         printTimetableSlots(timetableSlots);
@@ -104,7 +109,9 @@ public class timetableMenu {
             System.out.println("5. View a Room Timetable");
             System.out.println("6. Exit");
 
-            int userInput = new Scanner(System.in).nextInt();
+            int userInput = scanner.nextInt();
+            scanner.nextLine();
+
             if (userInput == 1) {
                 adminViewStudentTimetable();
             } else if (userInput == 2) {
@@ -125,57 +132,64 @@ public class timetableMenu {
 
     private void viewModuleTimetable() {
         System.out.println("Enter the Module Code: ");
-        String moduleCode = new Scanner(System.in).nextLine();
+        String moduleCode = scanner.nextLine();
 
         System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
-        int semesterInput = new Scanner(System.in).nextInt();
+        int semesterInput = scanner.nextInt();
+        scanner.nextLine();
 
         List<TimetableSlot> timetableSlots = timetableManager.getModuleSlots(moduleCode, semesterInput);
-        printTimetableSlot(timetableSlots);
+        printTimetableSlots(timetableSlots);
     }
 
     private void viewProgrammeTimetable() {
         System.out.println("Enter the Programme Code: ");
-        String programmeCode = new Scanner(System.in).nextLine();
+        String programmeCode = scanner.nextLine();
 
         System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
-        int semesterInput = new Scanner(System.in).nextInt();
+        int semesterInput = scanner.nextInt();
+        scanner.nextLine();
 
         List<TimetableSlot> timetableSlots = timetableManager.getProgrammeSlots(programmeCode, semesterInput);
-        printTimetableSlot(timetableSlots);
+        printTimetableSlots(timetableSlots);
     }
 
     private void viewRoomTimetable() {
         System.out.println("Enter the Room Code: ");
-        String roomID = new Scanner(System.in).nextLine();
+        String roomID = scanner.nextLine();
 
         System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
-        int semesterInput = new Scanner(System.in).nextInt();
+        int semesterInput = scanner.nextInt();
+        scanner.nextLine();
 
         List<TimetableSlot> timetableSlots = timetableManager.getRoomSlots(roomID, semesterInput);
-        printTimetableSlot(timetableSlots);
+        printTimetableSlots(timetableSlots);
     }
 
     private void adminViewStudentTimetable() {
         System.out.println("Enter the Student ID: ");
-        String studentID = new Scanner(System.in).nextLine();
+        int studentID = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
-        int semesterInput = new Scanner(System.in).nextInt();
+        int semesterInput = scanner.nextInt();
+        scanner.nextLine();
 
         List<TimetableSlot> timetableSlots = timetableManager.getStudentIDSlots(studentID, semesterInput);
-        printTimetableSlot(timetableSlots);
+        printTimetableSlots(timetableSlots);
     }
 
     private void adminViewLecturerTimetable() {
         System.out.println("Enter the Lecturer ID: ");
-        String lecturerID = new Scanner(System.in).nextLine();
+        int lecturerID = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
-        int semesterInput = new Scanner(System.in).nextInt();
+        int semesterInput = scanner.nextInt();
+        scanner.nextLine();
 
-        List<TimetableSlot> timetableSlots = timetableManager.getLecturerIDSLots(lecturerID, semesterInput);
-        printTimetableSlot(timetableSlots);
+        List<TimetableSlot> timetableSlots = timetableManager.getLecturerIDSlots(lecturerID, semesterInput);
+        printTimetableSlots(timetableSlots);
     }
 
     private void printTimetableSlots(List<TimetableSlot> timetableSlots) {
