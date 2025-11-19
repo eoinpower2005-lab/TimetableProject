@@ -7,44 +7,5 @@
  * the capacity of a room is compared against the size of the sub-groups.
  */
 public class StudentGroup {
-    private String groupId;
-    private String programmeId;
-    private String moduleCode;
-    private int year;
-    private int semester;
-    private String groupType;
-    private int groupNum;
-
-    public StudentGroup(String groupId, String programmeId, String moduleCode, int year, int semester, String groupType, int groupSize) {
-        this.groupId = groupId;
-        this.programmeId = programmeId;
-        this.moduleCode = moduleCode;
-        this.year = year;
-        this.semester = semester;
-        this.groupType = groupType;
-        this.groupNum = groupSize;
-
-    }
-    public String getGroupId() {
-        return groupId;
-    }
-    public String getProgrammeId() {
-        return programmeId;
-    }
-    public String getModuleCode() {
-        return moduleCode;
-    }
-    public int getYear() {
-        return year;
-    }
-    public int getSemester() {
-        return semester;
-    }
-    public String getGroupType() {
-        return groupType;
-    }
-    public int getGroupSize() {
-        return groupNum;
-    }
 
 }
