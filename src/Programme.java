@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 /**
  * This class provides programme details for timetable
  * Represents the academic programmes offered by the university
@@ -8,10 +10,11 @@
 public class Programme {
     private String programmeId;
     private String programmeName;
-
+    
     public Programme(String programmeId, String programmeName) {
         this.programmeId = programmeId;
         this.programmeName = programmeName;
+
     }
     public String getProgrammeId() {
         return programmeId;
@@ -19,5 +22,4 @@ public class Programme {
     public String getProgrammeName() {
         return programmeName;
     }
-
 }
