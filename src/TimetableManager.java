@@ -22,20 +22,20 @@ public class TimetableManager {
      * @throws IllegalArgumentException if the slot clashes with existing slots.
      */
 
-    //public void addSlot(TimetableSlot newSlot) {
-        // Check for classes in same room
-        //for (TimetableSlot existing : timetableSlots) {
-            //if (existing.getRoom().equals(newSlot.getRoom())
-                    //&& existing.clashesWith(newSlot)) {
-                //throw new IllegalArgumentException("Room clash detected with existing slot.");
-            //}
-            //if (existing.getLecturerID() == (newSlot.getLecturerID())
-                    //&& existing.clashesWith(newSlot)) {
-                //throw new IllegalArgumentException("Lecturer clash detected with existing slot.");
-            //}
-        //}
-        //timetableSlots.add(newSlot);
-    //}
+    public void addSlot(TimetableSlot newSlot) {
+         //Check for classes in same room
+        for (TimetableSlot existing : timetableSlots) {
+            if (existing.getRoom().equals(newSlot.getRoom())
+                    && existing.clashesWith(newSlot)) {
+                throw new IllegalArgumentException("Room clash detected with existing slot.");
+            }
+            if (existing.getLecturerID() == (newSlot.getLecturerID())
+                    && existing.clashesWith(newSlot)) {
+                throw new IllegalArgumentException("Lecturer clash detected with existing slot.");
+            }
+        }
+        timetableSlots.add(newSlot);
+    }
 
     public TimetableManager(List<TimetableSlot> timetableSlots) {
         this.timetableSlots = timetableSlots;
