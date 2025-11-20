@@ -14,7 +14,7 @@ public class LoginManager {
      * no-arg constructor that loads all data from csv files into a list called users
      */
     public LoginManager() {
-        this.users = loadCsvData("src/Files/Users.csv");
+        this.users = loadCsvData("src/resources/Users.csv");
     }
 
     /**
@@ -59,14 +59,13 @@ public class LoginManager {
      * @param password the password entered at login
      * @return returns true or false depending on login outcome
      */
-    public boolean authenticate(int userid, String password) {
+    public User authenticate(int userid, String password) {
         for (User user : users) {
             if (user.getId() == userid && user.getPassword().equals(password)) {
-                System.out.println("Login Successful. Welcome " + user.getName() + "! Role: " + user.getRole());
-                return true;
+                return user;
             }
         }
-        return false;
+        return null;
     }
 
     /**

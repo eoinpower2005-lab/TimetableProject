@@ -17,7 +17,7 @@ public class Login {
      * @param users list of users loaded from a csv file
      * @return true when login succeeds
      */
-    public boolean login(List<User> users) {
+    public User login(List<User> users) {
         while (!authenticated) {
             Scanner in = new Scanner(System.in);
             System.out.print("Enter UserID: ");
@@ -27,12 +27,14 @@ public class Login {
             System.out.print("Enter Password: ");
             String password = in.nextLine();
 
-            authenticated = l1.authenticate(userID, password);
+            User user = l1.authenticate(userID, password);
 
-            if (!authenticated) {
-                System.out.println("Login Failed. Invalid UserID or password. Try again.");
+            if (user != null) {
+                System.out.println("Login Successful. Welcome " + user.getName() + "! Role: " + user.getRole());
+                return user;
             }
         }
-        return true;
+        return null;
     }
+
 }
