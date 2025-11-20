@@ -96,4 +96,12 @@ public class TimetableSlot {
     public void setSemester(int semester) {
         this.semester = semester;
     }
+
+    public boolean clashesWith(TimetableSlot other) {
+        if(this.day != other.day) {
+            return false;
+        }
+        return this.startTime.isBefore(other.endTime)
+                && other.startTime.isBefore(this.endTime);
+    }
 }
