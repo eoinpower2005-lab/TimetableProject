@@ -1,7 +1,7 @@
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
-public class TimetableSlot {
+public class timetableSlot {
     private DayOfWeek day;
     private int slotID;
     private String moduleCode;
@@ -13,7 +13,7 @@ public class TimetableSlot {
     private int semester;
 
 
-    public TimetableSlot(DayOfWeek day, int slotID, String moduleCode, LocalTime startTime, LocalTime endTime, ClassType classType, int lecturerID, String roomType, int semester) {
+    public timetableSlot(DayOfWeek day, int slotID, String moduleCode, LocalTime startTime, LocalTime endTime, ClassType classType, int lecturerID, String roomType, int semester) {
         this.day = day;
         this.slotID = slotID;
         this.moduleCode = moduleCode;
