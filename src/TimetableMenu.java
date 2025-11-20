@@ -1,10 +1,11 @@
+import java.util.List;
 import java.util.Scanner;
 
-public class timetableMenu {
-    private final timetableManager timetableManager;
+public class TimetableMenu {
+    private final TimetableManager timetableManager;
     private final Scanner scanner;
 
-    public timetableMenu(timetableManager timetableManager, Scanner scanner) {
+    public TimetableMenu(TimetableManager timetableManager, Scanner scanner) {
         this.timetableManager = timetableManager;
         this.scanner = scanner;
     }
@@ -200,9 +201,10 @@ public class timetableMenu {
 
         System.out.printf("%-12s %-14s %-8s %-11s %-15s %-7s%n", "Day", "Time", "Module", "Type", "Lecturer", "Room");
         for (TimetableSlot ts : timetableSlots) {
-            System.out.printf("%-12s %-14s %-8s %-11s %-15s %-7s%n",
+            System.out.printf("%-12s %-4s %-4s %-8s %-11s %-15s %-7s%n",
                     ts.getDay(),
-                    ts.getTime(),
+                    ts.getStartTime(),
+                    ts.getEndTime(),
                     ts.getModule(),
                     ts.getClassType(),
                     ts.getLecturerID(),
