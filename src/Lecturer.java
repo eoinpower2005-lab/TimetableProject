@@ -13,8 +13,8 @@ public class Lecturer extends User {
      * @param email the unique email of each user
      * @param role the role of a lecturer
      */
-    public Lecturer(int userid, String password, String name, String email, String role) {
-        super(userid, password, name, email, role);
+    public Lecturer(int userid, String password, String name, String email, String role, String timetableID) {
+        super(userid, password, name, email, role, timetableID);
     }
 
     /**

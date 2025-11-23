@@ -1,3 +1,9 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.Buffer;
+import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +19,8 @@ public class TimetableManager {
      * (Optionally, you could load from a CSV here.)
      */
     public TimetableManager() {
-        this.timetableSlots = new ArrayList<>();
+        this.timetableSlots = loadTimetableCSVData("src/resources/Timetable.csv");
+
     }
 
     /**
@@ -22,14 +29,41 @@ public class TimetableManager {
      * @throws IllegalArgumentException if the slot clashes with existing slots.
      */
 
+    public static List<TimetableSlot> loadTimetableCSVData(String filename) {
+        List<TimetableSlot> timetableSlots = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String csvLine;
+            br.readLine();
+
+            while ((csvLine = br.readLine()) != null) {
+                String[] fields = csvLine.split(",");
+                String day = fields[0].trim();
+                String startTime = fields[1].trim();
+                String endTime = fields[2].trim();
+                String moduleCode = fields[3].trim();
+                ClassType classType = ClassType.valueOf(fields[4].trim().toUpperCase());
+                String lecturerName = fields[5].trim();
+                String roomID = fields[6].trim();
+                int semester = Integer.parseInt(fields[7].trim());
+                String timetableID = fields[8].trim();
+
+                timetableSlots.add(new TimetableSlot(day, startTime, endTime, moduleCode, classType, lecturerName, roomID, semester, timetableID));
+            }
+        } catch (IOException e) {
+            System.err.println("File not found: " + filename);
+        }
+        return timetableSlots;
+    }
+
     public void addSlot(TimetableSlot newSlot) {
-         //Check for classes in same room
+        //Check for classes in same room
         for (TimetableSlot existing : timetableSlots) {
-            if (existing.getRoom().equals(newSlot.getRoom())
+            if (existing.getRoomID().equals(newSlot.getRoomID())
                     && existing.clashesWith(newSlot)) {
                 throw new IllegalArgumentException("Room clash detected with existing slot.");
             }
-            if (existing.getLecturerID() == (newSlot.getLecturerID())
+            if (existing.getLecturerName() == (newSlot.getLecturerName())
                     && existing.clashesWith(newSlot)) {
                 throw new IllegalArgumentException("Lecturer clash detected with existing slot.");
             }
@@ -47,8 +81,9 @@ public class TimetableManager {
 
     public List<TimetableSlot> getStudentSlots(Student student, int semesterInput) {
         List<TimetableSlot> studentSlots = new ArrayList<>();
+        String timetableID = student.getTimetableID();
         for (TimetableSlot slot : timetableSlots) {
-            if (slot.getSemester() == semesterInput) {
+            if (slot.getSemester() == semesterInput && slot.getTimetableID().equals(timetableID)) {
                 studentSlots.add(slot);
             }
         }
@@ -57,8 +92,9 @@ public class TimetableManager {
 
     public List<TimetableSlot> getLecturerSlots(Lecturer lecturer, int semesterInput) {
         List<TimetableSlot> lecturerSlots = new ArrayList<>();
+        String timetableID = lecturer.getTimetableID();
         for (TimetableSlot slot : timetableSlots) {
-            if (slot.getSemester() == semesterInput) {
+            if (slot.getSemester() == semesterInput && slot.getTimetableID().equals(timetableID)) {
                 lecturerSlots.add(slot);
             }
         }

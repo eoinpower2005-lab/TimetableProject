@@ -1,3 +1,3 @@
 public enum ClassType {
-    LECTURE, TUTORIAL, LAB
+    LEC, TUT, LAB
 }

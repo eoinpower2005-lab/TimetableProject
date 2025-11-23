@@ -32,6 +32,8 @@ public class Login {
             if (user != null) {
                 System.out.println("Login Successful. Welcome " + user.getName() + "! Role: " + user.getRole());
                 return user;
+            } else {
+                System.out.println("Invalid userID or password. Please try again.");
             }
         }
         return null;

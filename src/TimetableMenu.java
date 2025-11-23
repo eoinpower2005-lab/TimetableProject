@@ -4,10 +4,12 @@ import java.util.Scanner;
 public class TimetableMenu {
     private final TimetableManager timetableManager;
     private final Scanner scanner;
+    private List<User> users;
 
-    public TimetableMenu(TimetableManager timetableManager, Scanner scanner) {
+    public TimetableMenu(TimetableManager timetableManager, Scanner scanner, List<User> users) {
         this.timetableManager = timetableManager;
         this.scanner = scanner;
+        this.users = users;
     }
 
     public void displayMenu(User user) {
@@ -53,12 +55,13 @@ public class TimetableMenu {
     }
 
     private void viewStudentTimetable(Student student) {
-        System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
+        System.out.print("Enter a semester: (1 = Autumn, 2 = Spring)    ");
         int semesterInput = scanner.nextInt();
         scanner.nextLine();
 
         List<TimetableSlot> timetableSlots = timetableManager.getStudentSlots(student, semesterInput);
         printTimetableSlots(timetableSlots);
+        System.exit(0);
     }
 
     private void displayLecturerMenu(Lecturer lecturer) {
@@ -91,12 +94,13 @@ public class TimetableMenu {
     }
 
     private void viewLecturerTimetable(Lecturer lecturer) {
-        System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
+        System.out.print("Enter a semester: (1 = Autumn, 2 = Spring)    ");
         int semesterInput = scanner.nextInt();
         scanner.nextLine();
 
         List<TimetableSlot> timetableSlots = timetableManager.getLecturerSlots(lecturer, semesterInput);
         printTimetableSlots(timetableSlots);
+        System.exit(0);
     }
 
     private void displayAdminMenu(Admin admin) {
@@ -132,84 +136,146 @@ public class TimetableMenu {
     }
 
     private void viewModuleTimetable() {
-        System.out.println("Enter the Module Code: ");
+        System.out.print("Enter the Module Code: ");
         String moduleCode = scanner.nextLine();
 
-        System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
+        System.out.print("Enter a semester: (1 = Autumn, 2 = Spring)    ");
         int semesterInput = scanner.nextInt();
         scanner.nextLine();
 
         List<TimetableSlot> timetableSlots = timetableManager.getModuleSlots(moduleCode, semesterInput);
         printTimetableSlots(timetableSlots);
+        System.exit(0);
     }
 
     private void viewProgrammeTimetable() {
-        System.out.println("Enter the Programme Code: ");
+        System.out.print("Enter the Programme Code: ");
         String programmeCode = scanner.nextLine();
 
-        System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
+        System.out.print("Enter a semester: (1 = Autumn, 2 = Spring)    ");
         int semesterInput = scanner.nextInt();
         scanner.nextLine();
 
         List<TimetableSlot> timetableSlots = timetableManager.getProgrammeSlots(programmeCode, semesterInput);
         printTimetableSlots(timetableSlots);
+        System.exit(0);
     }
 
     private void viewRoomTimetable() {
-        System.out.println("Enter the Room Code: ");
+        System.out.print("Enter the Room Code: ");
         String roomID = scanner.nextLine();
 
-        System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
+        System.out.print("Enter a semester: (1 = Autumn, 2 = Spring)    ");
         int semesterInput = scanner.nextInt();
         scanner.nextLine();
 
         List<TimetableSlot> timetableSlots = timetableManager.getRoomSlots(roomID, semesterInput);
         printTimetableSlots(timetableSlots);
+        System.exit(0);
     }
 
     private void adminViewStudentTimetable() {
-        System.out.println("Enter the Student ID: ");
+        System.out.print("Enter the Student ID: ");
         int studentID = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
+        System.out.print("Enter a semester: (1 = Autumn, 2 = Spring)    ");
         int semesterInput = scanner.nextInt();
         scanner.nextLine();
 
-        List<TimetableSlot> timetableSlots = timetableManager.getStudentIDSlots(studentID, semesterInput);
+        Student student = null;
+        for (User user : users) {
+            if (user instanceof Student && user.getId() == studentID) {
+                student = (Student) user;
+                break;
+            }
+        }
+
+        if (student == null) {
+            System.out.println("Student ID not found");
+        }
+
+        List<TimetableSlot> timetableSlots = timetableManager.getStudentSlots(student, semesterInput);
         printTimetableSlots(timetableSlots);
+        System.exit(0);
     }
 
     private void adminViewLecturerTimetable() {
-        System.out.println("Enter the Lecturer ID: ");
+        System.out.print("Enter the Lecturer ID: ");
         int lecturerID = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.println("Enter a semester: (1 = Autumn, 2 = Spring");
+        System.out.print("Enter a semester: (1 = Autumn, 2 = Spring)    ");
         int semesterInput = scanner.nextInt();
         scanner.nextLine();
 
         List<TimetableSlot> timetableSlots = timetableManager.getLecturerIDSlots(lecturerID, semesterInput);
         printTimetableSlots(timetableSlots);
+        System.exit(0);
     }
 
     private void printTimetableSlots(List<TimetableSlot> timetableSlots) {
         if (timetableSlots.isEmpty()) {
-            System.out.println("No timetable slots found");
+            System.out.println("No timetable slots found!");
             return;
         }
 
-        System.out.printf("%-12s %-14s %-8s %-11s %-15s %-7s%n", "Day", "Time", "Module", "Type", "Lecturer", "Room");
-        for (TimetableSlot ts : timetableSlots) {
-            System.out.printf("%-12s %-4s %-4s %-8s %-11s %-15s %-7s%n",
-                    ts.getDay(),
-                    ts.getStartTime(),
-                    ts.getEndTime(),
-                    ts.getModule(),
-                    ts.getClassType(),
-                    ts.getLecturerID(),
-                    ts.getRoom());
-        }
-    }
+        String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+        String[] timeSlots = {"09:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00", "16:00-17:00", "17:00-18:00"};
+        String[][] timetableGrid = new String[9][5];
 
+        for (int i = 0; i < timeSlots.length; i++) {
+            for (int j = 0; j < days.length; j++) {
+                timetableGrid[i][j] = "";
+            }
+        }
+
+        for (TimetableSlot slot : timetableSlots) {
+            String day = slot.getDay();
+            String timeSlot = slot.getStartTime() + "-" + slot.getEndTime();
+
+            int indexTime = 0;
+            for (int i = 0; i < timeSlots.length; i++) {
+                if (timeSlots[i].equals(timeSlot)) {
+                    indexTime = i;
+                    break;
+                }
+            }
+
+            int indexDay = 0;
+            for (int i = 0; i < days.length; i++) {
+                if (days[i].equals(day)) {
+                    indexDay = i;
+                    break;
+                }
+            }
+
+            String slotText = slot.getModule() + " " + slot.getClassType() + " " + slot.getLecturerName() + " " + slot.getRoomID();
+            timetableGrid[indexTime][indexDay] = slotText;
+        }
+
+        int columnWidth = 35;
+        System.out.println();
+        System.out.printf("%-12s", "Time");
+
+        for (String day : days) {
+            System.out.printf("| %-"+columnWidth+"s", day);
+        }
+        System.out.println();
+
+        int totalWidth = 12 + days.length * (columnWidth + 2);
+        for (int i = 0; i < totalWidth; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+
+        for (int i = 0; i < timeSlots.length; i++) {
+            System.out.printf("%-12s", timeSlots[i]);
+            for (int j = 0; j < days.length; j++) {
+                System.out.printf("| %-"+columnWidth+"s", timetableGrid[i][j]);
+            }
+            System.out.println();
+        }
+
+    }
 }

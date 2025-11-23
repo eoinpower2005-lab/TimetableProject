@@ -13,8 +13,8 @@ public class Student extends User{
      * @param email the unique email of each user
      * @param role the role of a student
      */
-    public Student(int userid, String password, String name, String email, String role) {
-        super(userid, password, name, email, role);
+    public Student(int userid, String password, String name, String email, String role, String timetableID) {
+        super(userid, password, name, email, role, timetableID);
     }
 
     /**

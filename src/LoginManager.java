@@ -14,7 +14,7 @@ public class LoginManager {
      * no-arg constructor that loads all data from csv files into a list called users
      */
     public LoginManager() {
-        this.users = loadCsvData("src/resources/Users.csv");
+        this.users = loadUserCsvData("src/resources/Users.csv");
     }
 
     /**
@@ -24,7 +24,7 @@ public class LoginManager {
      * @param filename path reference of the csv file being read
      * @return returns a list of users read from the csv file
      */
-    public static List<User> loadCsvData(String filename) {
+    public static List<User> loadUserCsvData(String filename) {
         List<User> users = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
@@ -32,19 +32,20 @@ public class LoginManager {
             br.readLine();
 
             while((csvLine = br.readLine()) != null) {
-                String[] fields = csvLine.split(",");
+                String[] fields = csvLine.split(",", -1);
                 int userid = Integer.parseInt(fields[0]);
                 String password = fields[1].trim();
                 String name = fields[2].trim();
                 String email = fields[3].trim();
                 String role = fields[4].trim();
+                String timetableID = fields[5].trim();
 
                 if (role.toLowerCase().equals("admin")) {
-                    users.add(new Admin(userid, password, name, email, role));
+                    users.add(new Admin(userid, password, name, email, role, timetableID));
                 } else if (role.toLowerCase().equals("student")) {
-                    users.add(new Student(userid, password, name, email, role));
+                    users.add(new Student(userid, password, name, email, role, timetableID));
                 } else {
-                    users.add(new Lecturer(userid, password, name, email, role));
+                    users.add(new Lecturer(userid, password, name, email, role, timetableID));
                 }
             }
         } catch (IOException e) {

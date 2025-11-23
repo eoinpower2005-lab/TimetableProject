@@ -8,7 +8,7 @@ public class LoginTest {
 
         Scanner scanner = new Scanner(System.in);
         TimetableManager timetableManager = new TimetableManager();
-        TimetableMenu menu = new TimetableMenu(timetableManager, scanner);
+        TimetableMenu menu = new TimetableMenu(timetableManager, scanner, lm.getUsers());
         menu.displayMenu(loggedInUser);
 
     }

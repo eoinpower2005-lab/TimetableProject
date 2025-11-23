@@ -8,6 +8,7 @@ public abstract class User {
     private String name;
     private String email;
     private String role;
+    private String timetableID;
 
     /**
      *
@@ -18,12 +19,13 @@ public abstract class User {
      * @param role role of user (student, lecturer, admin)
      * constructs a User object with the passed in parameters
      */
-    public User(int userid, String password, String name, String email, String role) {
+    public User(int userid, String password, String name, String email, String role, String timetableID) {
         this.userid = userid;
         this.password = password;
         this.name = name;
         this.email = email;
         this.role = role;
+        this.timetableID = timetableID;
     }
 
     /**
@@ -110,5 +112,13 @@ public abstract class User {
      */
     public String getRole() {
         return role;
+    }
+
+    public void setTimetableID(String timetableID) {
+        this.timetableID = timetableID;
+    }
+
+    public String getTimetableID() {
+        return timetableID;
     }
 }

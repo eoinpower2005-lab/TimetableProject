@@ -2,43 +2,35 @@ import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 public class TimetableSlot {
-    private DayOfWeek day;
-    private int slotID;
+    private String day;
+    private String startTime;
+    private String endTime;
     private String moduleCode;
-    private LocalTime startTime;
-    private LocalTime endTime;
     private ClassType classType;
-    private int lecturerID;
-    private String roomType;
+    private String lecturerName;
+    private String roomID;
     private int semester;
+    private String timetableID;
 
 
-    public TimetableSlot(DayOfWeek day, int slotID, String moduleCode, LocalTime startTime, LocalTime endTime, ClassType classType, int lecturerID, String roomType, int semester) {
+    public TimetableSlot(String day, String startTime, String endTime, String moduleCode, ClassType classType, String lecturerName, String roomID, int semester, String timetableID) {
         this.day = day;
-        this.slotID = slotID;
-        this.moduleCode = moduleCode;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.moduleCode = moduleCode;
         this.classType = classType;
-        this.lecturerID = lecturerID;
-        this.roomType = roomType;
+        this.lecturerName = lecturerName;
+        this.roomID = roomID;
         this.semester = semester;
+        this.timetableID = timetableID;
     }
 
-    public DayOfWeek getDay() {
+    public String getDay() {
         return day;
     }
 
-    public void setDay(DayOfWeek day) {
+    public void setDay(String day) {
         this.day = day;
-    }
-
-    public int getSlotID() {
-        return slotID;
-    }
-
-    public void setSlotID(int slotID) {
-        this.slotID = slotID;
     }
 
     public String getModule() {
@@ -49,19 +41,19 @@ public class TimetableSlot {
         this.moduleCode = moduleCode;
     }
 
-    public LocalTime getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalTime startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public LocalTime getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalTime endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
@@ -73,20 +65,20 @@ public class TimetableSlot {
         this.classType = classType;
     }
 
-    public int getLecturerID() {
-        return lecturerID;
+    public String getLecturerName() {
+        return lecturerName;
     }
 
-    public void setLecturerID(int lecturerID) {
-        this.lecturerID = lecturerID;
+    public void setLecturerName(String lecturerName) {
+        this.lecturerName = lecturerName;
     }
 
-    public String getRoom() {
-        return roomType;
+    public String getRoomID() {
+        return roomID;
     }
 
-    public void setRoom(String roomType) {
-        this.roomType = roomType;
+    public void setRoom(String roomID) {
+        this.roomID = roomID;
     }
 
     public int getSemester() {
@@ -97,11 +89,18 @@ public class TimetableSlot {
         this.semester = semester;
     }
 
+    public String getTimetableID() {
+        return timetableID;
+    }
+
+    public void setTimetableID(String timetableID) {
+        this.timetableID = timetableID;
+    }
+
     public boolean clashesWith(TimetableSlot other) {
         if(this.day != other.day) {
             return false;
         }
-        return this.startTime.isBefore(other.endTime)
-                && other.startTime.isBefore(this.endTime);
+        return (this.startTime != other.endTime);
     }
 }

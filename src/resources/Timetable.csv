@@ -1,0 +1,20 @@
+day, start_time, end_time, module_code, class_type, assigned_lecturer, room_id, semester, timetable_id
+Monday, 10:00, 11:00, CS4178, Lec, Fazilat Hojaji, S206, 1, 1A
+Monday, 16:00, 17:00, CS4178, Tut, Fazilat Hojaji, CSG025, 1, 1A
+Tuesday, 10:00, 11:00, CS4023, Lec, Emil Vassev, C1063, 1, 1A
+Tuesday, 15:00, 16:00, CS4178, Lec, Fazilat Hojaji, D1050, 1, 1A
+Tuesday, 16:00, 17:00, CS4004, Tut, Faeq Alrimawi, CSG025, 1, 1A
+Tuesday, 17:00, 18:00, CS4023, Lec, Emil Vassev, ERB001, 1, 1A
+Wednesday, 9:00, 10:00, CS4178, Tut, Fazilat Hojaji, CSG025, 1, 1A
+Wednesday, 11:00, 12:00, CS4013, Lec, Michael English, CSG001, 1, 1A
+Wednesday, 12:00, 13:00, CS4416, Lec, Nikola Nikolov, HSG037, 1, 1A
+Wednesday, 14:00, 16:00, CS4004, Lec, Faeq Alrimawi, S206, 1, 1A
+Wednesday, 17:00, 18:00, CS4416, Lab, Nikola Nikolov, CS3004B, 1, 1A
+Thursday, 9:00, 10:00, CS4013, Lec, Michael English, ERB001, 1, 1A
+Thursday, 11:00, 12:00, CS4004, Lab, Faeq Alrimawi, CS2044, 1, 1A
+Thursday, 13:00, 14:00, CS4416, Tut, Nikola Nikolov, KBG14, 1, 1A
+Thursday, 15:00, 16:00, CS4023, Lab, Emil Vassev, CS2044, 1, 1A
+Thursday, 16:00, 18:00, CS4013, Lab, Michael English, CS2044, 1, 1A
+Friday, 10:00, 11:00, CS4416, Lec, Nikola Nikolov, HSG037, 1, 1A
+Friday, 13:00, 14:00, CS4023, Tut, Emil Vassev, ERB001, 1, 1A
+Friday, 15:00, 16:00, CS4013, Tut, Michael English, FG042, 1, 1A
