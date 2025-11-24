@@ -56,6 +56,7 @@ public class TimetableManager {
         return timetableSlots;
     }
 
+
     public void addSlot(TimetableSlot newSlot) {
         //Check for classes in same room
         for (TimetableSlot existing : timetableSlots) {
