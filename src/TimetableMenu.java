@@ -196,6 +196,7 @@ public class TimetableMenu {
             return;
         }
 
+
         List<TimetableSlot> timetableSlots = timetableManager.getStudentSlots(student, semesterInput);
         printTimetableSlots(timetableSlots);
         System.exit(0);
