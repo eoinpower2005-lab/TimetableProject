@@ -102,10 +102,11 @@ public class TimetableManager {
         return lecturerSlots;
     }
 
-    public List<TimetableSlot> getModuleSlots(String module, int semesterInput) {
+    public List<TimetableSlot> getModuleSlots(String moduleCode, int semesterInput) {
         List<TimetableSlot> moduleSlots = new ArrayList<>();
         for (TimetableSlot slot : timetableSlots) {
-            if (slot.getSemester() == semesterInput) {
+            if (slot.getSemester() == semesterInput &&
+                    slot.getModule().equalsIgnoreCase(moduleCode)) {
                 moduleSlots.add(slot);
             }
         }
@@ -125,7 +126,8 @@ public class TimetableManager {
     public List<TimetableSlot> getRoomSlots(String roomCode, int semesterInput) {
         List<TimetableSlot> roomSlots = new ArrayList<>();
         for (TimetableSlot slot : timetableSlots) {
-            if (slot.getSemester() == semesterInput) {
+            if (slot.getSemester() == semesterInput &&
+                    slot.getRoomID().equalsIgnoreCase(roomCode)) {
                 roomSlots.add(slot);
             }
         }
