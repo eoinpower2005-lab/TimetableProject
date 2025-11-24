@@ -18,6 +18,7 @@ public class Rooms {
      * @param RoomType The room type
      */
 
+
     private Rooms(String RoomId, int capacity, String RoomType, boolean isAvailable) {
         if (RoomId == null || capacity <= 0 || RoomType == null) {
             throw new IllegalArgumentException("Invalid arguments");
