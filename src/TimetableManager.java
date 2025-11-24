@@ -63,7 +63,7 @@ public class TimetableManager {
                     && existing.clashesWith(newSlot)) {
                 throw new IllegalArgumentException("Room clash detected with existing slot.");
             }
-            if (existing.getLecturerName() == (newSlot.getLecturerName())
+            if (existing.getLecturerName().equals(newSlot.getLecturerName())
                     && existing.clashesWith(newSlot)) {
                 throw new IllegalArgumentException("Lecturer clash detected with existing slot.");
             }
