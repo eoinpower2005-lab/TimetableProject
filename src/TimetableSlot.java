@@ -98,9 +98,14 @@ public class TimetableSlot {
     }
 
     public boolean clashesWith(TimetableSlot other) {
-        if(this.day != other.day) {
+        if (!this.day.equals(other.day)) {
             return false;
         }
-        return (this.startTime != other.endTime);
+        LocalTime thisStart = LocalTime.parse(this.startTime);
+        LocalTime thisEnd   = LocalTime.parse(this.endTime);
+        LocalTime otherStart = LocalTime.parse(other.startTime);
+        LocalTime otherEnd   = LocalTime.parse(other.endTime);
+
+        return thisStart.isBefore(otherEnd) && otherStart.isBefore(thisEnd);
     }
 }
