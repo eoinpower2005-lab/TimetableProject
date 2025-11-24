@@ -193,6 +193,7 @@ public class TimetableMenu {
 
         if (student == null) {
             System.out.println("Student ID not found");
+            return;
         }
 
         List<TimetableSlot> timetableSlots = timetableManager.getStudentSlots(student, semesterInput);
