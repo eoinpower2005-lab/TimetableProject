@@ -19,7 +19,7 @@ public class Rooms {
      */
 
     private Rooms(String RoomId, int capacity, String RoomType, boolean isAvailable) {
-        if (RoomId == null || capacity < 0 || RoomType == null) {
+        if (RoomId == null || capacity <= 0 || RoomType == null) {
             throw new IllegalArgumentException("Invalid arguments");
         }
         if (!isValidType(RoomType)) {
