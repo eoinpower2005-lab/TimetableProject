@@ -14,7 +14,7 @@ public class LoginManager {
      * no-arg constructor that loads all data from csv files into a list called users
      */
     public LoginManager() {
-        this.users = loadUserCsvData("TimetableProject/src/resources/Users.csv");
+        this.users = loadUserCsvData("src/resources/Users.csv");
     }
 
     /**

@@ -69,21 +69,21 @@ public class Module {
     public boolean canUseRoom(Rooms room,String classType){
         switch (classType.toLowerCase()){
 
-        case "lecture":
-            return lectureHours > 0 &&
-                    room.getType().equalsIgnoreCase(lectureRoomType);
+            case "lecture":
+                return lectureHours > 0 &&
+                        room.getType().equalsIgnoreCase(lectureRoomType);
 
-        case "lab":
-            return labHours > 0 &&
-                    room.getType().equalsIgnoreCase(labRoomType);
+            case "lab":
+                return labHours > 0 &&
+                        room.getType().equalsIgnoreCase(labRoomType);
 
-        case "tutorial":
-            return tutorialHours > 0 &&
-                    room.getType().equalsIgnoreCase(tutorialRoomType);
+            case "tutorial":
+                return tutorialHours > 0 &&
+                        room.getType().equalsIgnoreCase(tutorialRoomType);
 
-        default:
-            return false;
+            default:
+                return false;
 
+        }
     }
-  }
 }

@@ -16,7 +16,7 @@ public class timetableManager {
      * (Optionally, you could load from a CSV here.)
      */
     public timetableManager() {
-        String filename = "TimetableProject/src/resources/Timetable.csv";
+        String filename = "src/resources/Timetable.csv";
         File file = new File(filename);
         this.timetableSlots = loadTimetableCSVData(filename);
 
@@ -333,12 +333,12 @@ public class timetableManager {
 
 
     public void generateTimetable(int semester) {
-        List<Programme> programmeList = loadProgrammeStructureCSVData("TimetableProject/src/resources/Programme_structure.csv");
-        List<ModuleContactHours> moduleContactHoursList = loadModuleContactHoursCSVData("TimetableProject/src/resources/Module_contact_hours.csv");
-        List<Rooms> roomsList = loadRoomsCSVData("TimetableProject/src/resources/Rooms.csv");
-        List<StaffAssignment> staffAssignmentList = loadStaffAssignmentCSVData("TimetableProject/src/resources/Staff_assignment.csv");
-        List<StudentRecords> moduleEnrollmentList = loadModuleEnrollmentCSVData("TimetableProject/src/resources/Module_Enrollment.csv");
-        List<StudentGroup> studentGroupList = loadStudentGroupCSVData("TimetableProject/src/resources/Student_Groups.csv");
+        List<Programme> programmeList = loadProgrammeStructureCSVData("src/resources/Programme_structure.csv");
+        List<ModuleContactHours> moduleContactHoursList = loadModuleContactHoursCSVData("src/resources/Module_contact_hours.csv");
+        List<Rooms> roomsList = loadRoomsCSVData("src/resources/Rooms.csv");
+        List<StaffAssignment> staffAssignmentList = loadStaffAssignmentCSVData("src/resources/Staff_assignment.csv");
+        List<StudentRecords> moduleEnrollmentList = loadModuleEnrollmentCSVData("src/resources/Module_Enrollment.csv");
+        List<StudentGroup> studentGroupList = loadStudentGroupCSVData("src/resources/Student_Groups.csv");
 
         String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
         String[] timeSlots = {"09:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00", "16:00-17:00", "17:00-18:00"};
