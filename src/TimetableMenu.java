@@ -1,12 +1,14 @@
+import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class TimetableMenu {
-    private final TimetableManager timetableManager;
+    private final timetableManager timetableManager;
     private final Scanner scanner;
     private List<User> users;
 
-    public TimetableMenu(TimetableManager timetableManager, Scanner scanner, List<User> users) {
+    public TimetableMenu(timetableManager timetableManager, Scanner scanner, List<User> users) {
         this.timetableManager = timetableManager;
         this.scanner = scanner;
         this.users = users;
@@ -112,7 +114,8 @@ public class TimetableMenu {
             System.out.println("3. View a Programme Timetable");
             System.out.println("4. View a Module Timetable");
             System.out.println("5. View a Room Timetable");
-            System.out.println("6. Exit");
+            System.out.println("6. Modify a Timetable Slot");
+            System.out.println("7. Exit");
 
             int userInput = scanner.nextInt();
             scanner.nextLine();
@@ -128,6 +131,8 @@ public class TimetableMenu {
             } else if (userInput == 5) {
                 viewRoomTimetable();
             } else if (userInput == 6) {
+                adminModifySlot();
+            } else if (userInput == 7) {
                 validInput = false;
             } else {
                 System.out.println("Invalid choice. Try again!");
@@ -193,9 +198,7 @@ public class TimetableMenu {
 
         if (student == null) {
             System.out.println("Student ID not found");
-            return;
         }
-
 
         List<TimetableSlot> timetableSlots = timetableManager.getStudentSlots(student, semesterInput);
         printTimetableSlots(timetableSlots);
@@ -216,6 +219,88 @@ public class TimetableMenu {
         System.exit(0);
     }
 
+    private void adminModifySlot() {
+        List<TimetableSlot> allTimetableSlots = timetableManager.getTimetableSlots();
+        List<TimetableSlot> allMatchingSlots = new ArrayList<>();
+
+        System.out.println("Enter a Timetable ID: ");
+        String timetableID = scanner.nextLine();
+
+        System.out.println("Enter a semester: (1 = Autumn, 2 = Spring)    ");
+        int semesterInput = scanner.nextInt();
+        scanner.nextLine();
+
+        for (TimetableSlot timetableSlot : allTimetableSlots) {
+            if (timetableSlot.getSemester() == semesterInput && timetableSlot.getTimetableID().equalsIgnoreCase(timetableID)) {
+                allMatchingSlots.add(timetableSlot);
+            }
+        }
+
+        if (allMatchingSlots.isEmpty()) {
+            System.out.println("There is no slots found for a timetable with timetableID " + timetableID + " in semester " + semesterInput);
+            return;
+        }
+
+        for (int i = 0; i < allMatchingSlots.size(); i++) {
+            TimetableSlot slot = allMatchingSlots.get(i);
+            System.out.printf("%d: %s %s -%s | Module -> %s | Type -> %s | Lecturer -> %s | Room -> %s%n", i+1,
+                    slot.getDay(), slot.getStartTime(), slot.getEndTime(), slot.getModule(), slot.getClassType(), slot.getLecturerName(), slot.getRoomID());
+
+        }
+
+        System.out.println("Pick a slot to update: ");
+        int slotIndex = scanner.nextInt();
+        scanner.nextLine();
+
+        if (slotIndex < 1 || slotIndex > allTimetableSlots.size()) {
+            System.out.println("Invalid slot index. Try again!");
+            return;
+        }
+
+        TimetableSlot updatedSlot = allTimetableSlots.get(slotIndex - 1);
+        System.out.println("Pick a slot field to update: ");
+        System.out.println("1. Day");
+        System.out.println("2. Start Time");
+        System.out.println("3. End Time");
+        System.out.println("4. Module Code");
+        System.out.println("5. Class Type");
+        System.out.println("6. Lecturer Name");
+        System.out.println("7. Room ID");
+        int updateChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        try {
+            if (updateChoice == 1) {
+                System.out.println("Enter a Day: ");
+                String day = scanner.nextLine();
+                updatedSlot.setDay(day);
+            } else if (updateChoice == 2) {
+                System.out.println("Enter a Start Time: ");
+                String startTime = scanner.nextLine();
+                updatedSlot.setStartTime(startTime);
+            } else if (updateChoice == 3) {
+                System.out.println("Enter an End Time: ");
+                String endTime = scanner.nextLine();
+                updatedSlot.setEndTime(endTime);
+            } else if (updateChoice == 4) {
+                System.out.println("Enter a Module Code: ");
+                String moduleCode = scanner.nextLine();
+                updatedSlot.setModule(moduleCode);
+            } else if (updateChoice == 5) {
+                System.out.println("Enter a Class Type: (LECTURE / LAB / TUT)");
+                String classType = scanner.nextLine();
+                ClassType cType = ClassType.valueOf(classType);
+                updatedSlot.setClassType(cType);
+            } else if (updateChoice == 6) {
+                System.out.println("Enter a Lecturer Name: ");
+                String lecturerName = scanner.nextLine();
+                updatedSlot.setLecturerName(lecturerName);
+            }
+        } catch (Exception e) {
+            System.out.println("Invalid choice. Try again!");
+        }
+    }
+
     private void printTimetableSlots(List<TimetableSlot> timetableSlots) {
         if (timetableSlots.isEmpty()) {
             System.out.println("No timetable slots found!");
@@ -224,7 +309,7 @@ public class TimetableMenu {
 
         String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
         String[] timeSlots = {"09:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00", "16:00-17:00", "17:00-18:00"};
-        String[][] timetableGrid = new String[9][5];
+        String[][] timetableGrid = new String[timeSlots.length][days.length];
 
         for (int i = 0; i < timeSlots.length; i++) {
             for (int j = 0; j < days.length; j++) {
@@ -256,7 +341,7 @@ public class TimetableMenu {
             timetableGrid[indexTime][indexDay] = slotText;
         }
 
-        int columnWidth = 35;
+        int columnWidth = 40;
         System.out.println();
         System.out.printf("%-12s", "Time");
 
@@ -281,3 +366,5 @@ public class TimetableMenu {
 
     }
 }
+
+

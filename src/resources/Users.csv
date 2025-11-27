@@ -1,5 +1,16 @@
 user_id, password, name, email, role, timetable_id
-24438081, adminlog1, Eoin Power, eoinuniversity@gmail.com, Admin,
-11223344, studentlog1, John Mullane, John.yahoo@mail.com, Student, 1A
-09876543, lecturer1, Katherine, Katherine.work@gmail.com, Lecturer, 1B
-24490752, studentlog2, Michael Ryan, michaeluniversity@gmail.com, Student, 1C
+13579135, admin123, AdminAccount, adminuniversity@gmail.com, Admin,
+11223344, pass1, Eoin Power, eoinpower@studentmail.ul.ie, Student, 1A
+55667788, pass2, Tara Kingston, tarakingston@studentmail.ul.ie, Student, 1A
+99001122, pass3, Niall Liddane, niallliddane@studentmail.ul.ie, Student, 1A
+33445566, pass4, Sean Burke, seanburke@studentmail.ul.ie, Student, 1A
+24438081, pass5, John Smith, jsmith@gmail.com, Student, 1B
+25538081, pass6, Mikey Long, mlong@gmail.com, Student, 1B
+26638081, pass7, Kate Ryan, kryan@studentmail.ul.ie, Student, 1C
+27738081, pass8, Mark Pierce, mpierce@studentmail.ul.ie, Student, 3A
+14781749, pass10, Victor Alabi, va@studentmail.ul.ie, Student, 3B
+23921849, pass11, Evan Griffiths, eg@studentmail.ul.ie, Student, 3C
+09876543, passlec1, Michael English, michaelenglish@gmail.com, Lecturer, 1B
+12345678, passlec2, Alan T Ryan, alantryan@gmail.com, Lecturer, 1A
+08642086, passlec3, Kevin Moroney, kevinmoroney@gmail.com, Lecturer, 1A
+28427828, pass9, Darragh O Connell, doc@studentmail.ul.ie, Student, 2A

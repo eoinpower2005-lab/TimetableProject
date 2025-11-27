@@ -7,79 +7,51 @@
  * the capacity of a room is compared against the size of the sub-groups.
  */
 public class StudentGroup {
-    private String groupId; //ID for the group so it can be identified "LM124H1S1_CS4141_Lab1"
-    private String programmeId;
-    private String moduleCode;
-    private int year;
-    private int semester;
-    private String groupType;
+    private String groupID; //ID for the group so it can be identified "LM124H1S1_CS4141_Lab1"
+    private String programmeID;
+    private int programmeYear;
     private int groupSize ;
 
-    /**
-     *
-     * @param groupId unique identifier for this student group
-     * @param programmeId id of the programme("LM121")
-     * @param moduleCode module code this group is associated with
-     * @param year year of the programme
-     * @param semester semester number (1 or 2)
-     * @param groupType type of group ("lecture" or "lab" or "tutorial")
-     * @param groupSize number of students in the group
-     */
-//copy the values passed into the constructor into the fields of the object
-// It stores the input values into the new StudentGroup object so you can use them later.
-    public StudentGroup(String groupId, String programmeId, String moduleCode, int year, int semester, String groupType, int groupSize) {
-        this.groupId = groupId;
-        this.programmeId = programmeId;
-        this.moduleCode = moduleCode;
-        this.year = year;
-        this.semester = semester;
-        this.groupType = groupType;
+    public StudentGroup(String programmeID, int programmeYear, String groupID, int groupSize) {
+        this.groupID = groupID;
+        this.programmeID = programmeID;
+        this.programmeYear = programmeYear;
         this.groupSize = groupSize;
 
     }
-//accessible outside the class other classes can call these getter methods and return the variable (int, string)
-    /**
-     * Returns the unique ID of the student group.
-     */
-    public String getGroupId() {
-        return groupId;
+
+    public String getGroupID() {
+        return groupID;
     }
-    /**
-     * Returns the programme this group belongs to.
-     */
-    public String getProgrammeId() {
-        return programmeId;
+
+    public void setGroupID(String groupID) {
+        this.groupID = groupID;
     }
-    /**
-     * Returns the module code this group is taking.
-     */
-    public String getModuleCode() {
-        return moduleCode;
+
+    public String getProgrammeID() {
+        return programmeID;
     }
-    /**
-     * Returns the programme year of this group.
-     */
-    public int getYear() {
-        return year;
+
+    public void setProgrammeID(String programmeID) {
+        this.programmeID = programmeID;
     }
-    /**
-     * Returns the semester this group is in.
-     */
-    public int getSemester() {
-        return semester;
+
+    public int getProgrammeYear() {
+        return programmeYear;
     }
-    /**
-     * Returns the type of group (lecture, lab, or tutorial).
-     */
-    public String getGroupType() {
-        return groupType;
+
+    public void setProgrammeYear(int programmeYear) {
+        this.programmeYear = programmeYear;
     }
-    /**
-     * Returns the number of students in the group.
-     */
+
     public int getGroupSize() {
         return groupSize;
     }
+
+    public void setGroupSize(int groupSize) {
+        this.groupSize = groupSize;
+    }
+
 
 
 }

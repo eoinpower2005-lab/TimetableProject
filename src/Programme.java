@@ -8,18 +8,47 @@ import java.util.List;
  * Stores programme information (programmeId, programmeName, programmeModule)
  */
 public class Programme {
-    private String programmeId;
-    private String programmeName;
-    
-    public Programme(String programmeId, String programmeName) {
-        this.programmeId = programmeId;
-        this.programmeName = programmeName;
+    private String programmeID;
+    private int programmeYear;
+    private int programmeSemester;
+    private String moduleID;
 
+    public Programme(String programmeID, int programmeYear, int programmeSemester, String moduleID) {
+        this.programmeID = programmeID;
+        this.programmeYear = programmeYear;
+        this.programmeSemester = programmeSemester;
+        this.moduleID = moduleID;
     }
-    public String getProgrammeId() {
-        return programmeId;
+
+    public void setProgrammeId(String programmeId) {
+        this.programmeID = programmeId;
     }
-    public String getProgrammeName() {
-        return programmeName;
+
+    public String getProgrammeID() {
+        return programmeID;
+    }
+
+    public void setProgrammeYear(int programmeYear) {
+        this.programmeYear = programmeYear;
+    }
+
+    public int getProgrammeYear() {
+        return programmeYear;
+    }
+
+    public void setProgrammeSemester(int programmeSemester) {
+        this.programmeSemester = programmeSemester;
+    }
+
+    public int getProgrammeSemester() {
+        return programmeSemester;
+    }
+
+    public void setModuleID(String moduleID) {
+        this.moduleID = moduleID;
+    }
+
+    public String getModuleID() {
+        return moduleID;
     }
 }
