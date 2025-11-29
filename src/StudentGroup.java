@@ -8,48 +8,48 @@
 
  */
 public class StudentGroup {
-    private String groupID; //ID for the group so it can be identified "LM124H1S1_CS4141_Lab1"
-    private String programmeID;
-    private int programmeYear;
-    private int groupSize;
+    private String groupIDs; //ID for the group so it can be identified "LM124H1S1_CS4141_Lab1"
+    private String programmeIDs;
+    private int programmeYears;
+    private int groupSizes;
 
-    public StudentGroup(String programmeID, int programmeYear, String groupID, int groupSize) {
-        this.groupID = groupID;
-        this.programmeID = programmeID;
-        this.programmeYear = programmeYear;
-        this.groupSize = groupSize;
+    public StudentGroup(String programmeIDs, int programmeYears, String groupIDs, int groupSizes) {
+        this.groupIDs = groupIDs;
+        this.programmeIDs = programmeIDs;
+        this.programmeYears = programmeYears;
+        this.groupSizes = groupSizes;
 
     }
 
-    public String getGroupID() {
-        return groupID;
+    public String getGroupIDs() {
+        return groupIDs;
     }
 
     public void setGroupID(String groupID) {
-        this.groupID = groupID;
+        this.groupIDs = groupIDs;
     }
 
-    public String getProgrammeID() {
-        return programmeID;
+    public String getProgrammeIDs() {
+        return programmeIDs;
     }
 
-    public void setProgrammeID(String programmeID) {
-        this.programmeID = programmeID;
+    public void setProgrammeIDs(String programmeIDs) {
+        this.programmeIDs = programmeIDs;
     }
 
-    public int getProgrammeYear() {
-        return programmeYear;
+    public int getProgrammeYears() {
+        return programmeYears;
     }
 
-    public void setProgrammeYear(int programmeYear) {
-        this.programmeYear = programmeYear;
+    public void setProgrammeYears(int programmeYears) {
+        this.programmeYears = programmeYears;
     }
 
-    public int getGroupSize() { //
-        return groupSize;
+    public int getGroupSizes() { //
+        return groupSizes;
     }
 
-    public void setGroupSize(int groupSize) {
-        this.groupSize = groupSize;
+    public void setGroupSizes(int groupSizes) {
+        this.groupSizes = groupSizes;
     }
 }
