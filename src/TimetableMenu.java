@@ -3,17 +3,39 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * TimetableMenu class contains the code for different user menu options.
+ * Students can view student timetable, view module timetable, view programme timetable, and view room timetable.
+ * Lecturer can view lecturer timetable, view module timetable, view programme timetable, and view room timetable.
+ * Admin can view a student timetable, view a lecturer timetable, view a programme timetable, view a room timetable,
+ * view a module timetable, and modify a timetable.
+ */
 public class TimetableMenu {
     private final timetableManager timetableManager;
     private final Scanner scanner;
     private List<User> users;
 
+    /**
+     * constructor which creates a new TimetableMenu with the passed in parameters.
+     * @param timetableManager the timetableManager class is used for querying the different timetable menu options.
+     * @param scanner scanner is used to read the user's input from the command line interface (CLI).
+     * @param users the list of all users stored in a csv file. Used for determining type of logged-in user.
+     */
     public TimetableMenu(timetableManager timetableManager, Scanner scanner, List<User> users) {
         this.timetableManager = timetableManager;
         this.scanner = scanner;
         this.users = users;
     }
 
+    /**
+     * this displayMenu method determines the menu that should be displayed for the type of logged-in user.
+     * the user parameter is the list of users in the system.
+     * checks what type of object the user is an instance of.
+     * casts the user to be of the object type e.g. casts user to be of type Student.
+     * calls the correct method and passes the user as a parameter.
+     * prints a message if the user is not recognised in the system.
+     * @param user the list of users in the system.
+     */
     public void displayMenu(User user) {
         if (user instanceof Student) {
             displayStudentMenu((Student) user);
@@ -26,6 +48,14 @@ public class TimetableMenu {
         }
     }
 
+    /**
+     * method for displaying a students menu options.
+     * different querying options.
+     * uses scanner to get user's input from command line interface.
+     * loops until user's input is valid.
+     * calls the appropriate method for the user inputs option.
+     * @param student the logged-in user which is of type Student.
+     */
     private void displayStudentMenu(Student student) {
         boolean validInput = true;
 
@@ -56,6 +86,14 @@ public class TimetableMenu {
         }
     }
 
+    /**
+     * prompts the student to enter a semester for their student timetable.
+     * this method returns the list of timetable slots for the logged-in student.
+     * gets the user's input from the command line interface using scanner.
+     * calls the getStudentSlots method in timetableManager and stores it in a list timetableSlots of type TimetableSlot.
+     * calls the printTimetableSlots method and passes in the list of timetableSlots for this student.
+     * @param student the logged-in user which is of type Student.
+     */
     private void viewStudentTimetable(Student student) {
         System.out.print("Enter a semester: (1 = Autumn, 2 = Spring)    ");
         int semesterInput = scanner.nextInt();
@@ -66,6 +104,15 @@ public class TimetableMenu {
         //System.exit(0);
     }
 
+    /**
+     * method for displaying a lecturers menu options.
+     * different querying options.
+     * displays the lecturers teaching timetable across all assigned modules.
+     * uses scanner to get user's input from command line interface.
+     * loops until user's input is valid.
+     * calls the appropriate method for the user inputs option.
+     * @param lecturer the logged-in user which is of type Lecturer.
+     */
     private void displayLecturerMenu(Lecturer lecturer) {
         boolean validInput = true;
         while (validInput) {
@@ -95,6 +142,14 @@ public class TimetableMenu {
         }
     }
 
+    /**
+     * prompts the lecturer to enter a semester for their teaching timetable.
+     * this method returns the list of teaching timetable slots for the logged-in lecturer.
+     * gets the user's input from the command line interface using scanner.
+     * calls the getLecturerSlots method in timetableManager and stores it in a list timetableSlots of type TimetableSlot.
+     * calls the printTimetableSlots method and passes in the list of timetableSlots for this lecturer.
+     * @param lecturer the logged-in user which is of type Lecturer.
+     */
     private void viewLecturerTimetable(Lecturer lecturer) {
         System.out.print("Enter a semester: (1 = Autumn, 2 = Spring)    ");
         int semesterInput = scanner.nextInt();
@@ -105,6 +160,20 @@ public class TimetableMenu {
         //System.exit(0);
     }
 
+    /**
+     * method for displaying an Admins menu options.
+     * different querying options.
+     * Admin can view any students timetable for a selected semester.
+     * Admin can view any lecturers timetable for a selected semester.
+     * Admin can view any programme timetable for a selected semester.
+     * Admin can view any module timetable for a selected semester.
+     * Admin can view any room timetable for a selected semester.
+     * ability to modify a timetable slot.
+     * uses scanner to get user's input from command line interface.
+     * loops until user's input is valid.
+     * calls the appropriate method for the user inputs option.
+     * @param admin the logged-in user which is of type Admin.
+     */
     private void displayAdminMenu(Admin admin) {
         boolean validInput = true;
         while (validInput) {
@@ -140,6 +209,14 @@ public class TimetableMenu {
         }
     }
 
+    /**
+     * this viewModuleTimetable method is used by all users - Student, Lecturer, and Admin.
+     * prompts the user to enter a module code and the semester. e.g. CS4012, semester 1.
+     * this method returns a list of all timetable slots for the entered module code and semester.
+     * gets the user's input from the command line interface using scanner.
+     * calls the getModuleSlots method in timetableManager and stores it in a list timetableSlots of type TimetableSlot.
+     * calls the printTimetableSlots method and passes in the list of timetableSlots for the module and semester.
+     */
     private void viewModuleTimetable() {
         System.out.print("Enter the Module Code: ");
         String moduleCode = scanner.nextLine();
@@ -153,6 +230,14 @@ public class TimetableMenu {
         //System.exit(0);
     }
 
+    /**
+     * this viewProgrammeTimetable method is used by all users - Student, Lecturer, and Admin.
+     * prompts the user to enter a programme code and the semester. e.g. LM121, semester 1.
+     * this method returns a list of all timetable slots for the entered programme code and semester.
+     * gets the user's input from the command line interface using scanner.
+     * calls the getProgrammeSlots method in timetableManager and stores it in a list timetableSlots of type TimetableSlot.
+     * calls the printTimetableSlots method and passes in the list of timetableSlots for the programme and semester.
+     */
     private void viewProgrammeTimetable() {
         System.out.print("Enter the Programme Code: ");
         String programmeCode = scanner.nextLine();
@@ -166,6 +251,14 @@ public class TimetableMenu {
         //System.exit(0);
     }
 
+    /**
+     * this viewRoomTimetable method is used by all users - Student, Lecturer, and Admin.
+     * prompts the user to enter a room code and the semester.
+     * this method returns a list of all timetable slots for the entered room code and semester.
+     * gets the user's input from the command line interface using scanner.
+     * calls the getRoomSlots method in timetableManager and stores it in a list timetableSlots of type TimetableSlot.
+     * calls the printTimetableSlots method and passes in the list of timetableSlots for the room and semester.
+     */
     private void viewRoomTimetable() {
         System.out.print("Enter the Room Code: ");
         String roomID = scanner.nextLine();
@@ -179,6 +272,18 @@ public class TimetableMenu {
         //System.exit(0);
     }
 
+    /**
+     * this adminViewStudentTimetable method is used only by the Admin.
+     * prompts the admin user to enter a students ID and the semester.
+     * student is of type Student and initialized to null.
+     * a for-each loop that loops through the list of users stored in the system.
+     * checks if the user is an instance of Student and the entered student ID matches the user ID associated with that student.
+     * casts the user to be of type Student and stores it in the local variable student, and exits the loop.
+     * checks if the student is null and prints a message if it is.
+     * gets the user's input from the command line interface using scanner.
+     * calls the getStudentSlots method in timetableManager and stores it in a list timetableSlots of type TimetableSlot.
+     * calls the printTimetableSlots method and passes in the list of timetableSlots for the students ID and semester.
+     */
     private void adminViewStudentTimetable() {
         System.out.print("Enter the Student ID: ");
         int studentID = scanner.nextInt();
@@ -205,6 +310,18 @@ public class TimetableMenu {
         //System.exit(0);
     }
 
+    /**
+     * this adminViewLecturerTimetable method is used only by the Admin.
+     * prompts the admin user to enter a lecturers ID and the semester.
+     * lecturer is of type Lecturer and initialized to null.
+     * a for-each loop that loops through the list of users stored in the system.
+     * checks if the user is an instance of Lecturer and the entered lecturer ID matches the user ID associated with that lecturer.
+     * casts the user to be of type Lecturer and stores it in the local variable lecturer, and exits the loop.
+     * checks if the lecturer is null and prints a message if it is.
+     * gets the user's input from the command line interface using scanner.
+     * calls the getLecturerSlots method in timetableManager and stores it in a list timetableSlots of type TimetableSlot.
+     * calls the printTimetableSlots method and passes in the list of timetableSlots for the lecturers ID and semester.
+     */
     private void adminViewLecturerTimetable() {
         System.out.print("Enter the Lecturer ID: ");
         int lecturerID = scanner.nextInt();
@@ -230,6 +347,21 @@ public class TimetableMenu {
         //System.exit(0);
     }
 
+    /**
+     * this adminModifySlot method is used only by the Admin.
+     * list of all generated timetable slots.
+     * list of timetable slots from the entire allTimetableSlots list that match the entered timetable id and semester.
+     * prompts the admin user to enter a timetable ID and semester. e.g. 1A, semester 1
+     * a for-each loop that loops through the list allTimetableSlots.
+     * checks if the entered semester and timetable ID matches the list using getter methods defined in TimetableSlot class.
+     * adds the matching ones to a list allMatchingSlots.
+     * checks if allMatchingSlots list is empty and prints a message if it is.
+     * a for loop that loops through allMatchingSlots list, gets the element at index i, and format prints it to the command line interface.
+     * prompts the admin user to pick a slot to modify.
+     * prompts the admin user to pick an option to modify the timetable.
+     * calls the setter methods in the TimetableSlot class to set the change to the timetable slot.
+     * writes the updated timetable to the Timetable.csv file.
+     */
     private void adminModifySlot() {
         List<TimetableSlot> allTimetableSlots = timetableManager.getTimetableSlots();
         List<TimetableSlot> allMatchingSlots = new ArrayList<>();
@@ -316,6 +448,23 @@ public class TimetableMenu {
         timetableManager.writeGeneratedTimetableToCSV("src/resources/Timetable.csv");
     }
 
+    /**
+     * this printTimetableSlots method is used by all query methods for the menu.
+     * list timetableSlots passed in as a parameter which contains the slots to be printed.
+     * checks if the list timetableSlots is empty and prints a message if it is.
+     * String array of days and a String array of time slots available each day from monday to friday.
+     * 2D array for the timetable grid which is of size timeSlots length by days length.
+     * a nested for loop which loops through the time slots in the array and the days in the array.
+     * initializes the timetable grid to empty strings.
+     * a for-each loop that loops through the list timetableSlots, gets the day and stores it in a local variable day.
+     * gets the start time and end time, separated by a dash and stored in a local variable timeSlot of type String.
+     * a for loop that loops through the array of time slots and checks if it equals the variable timeSlot.
+     * a for loop that loops through the array of days and checks if it equals the variable day.
+     * sets the timetable grid indexes equal to the slotText variable.
+     * for loops to print the formatting of the timetable grid.
+     * prompt used for timetable formatting -> java timetable print positioning (stack overflow).
+     * @param timetableSlots the list of all timetable slots to be printed.
+     */
     private void printTimetableSlots(List<TimetableSlot> timetableSlots) {
         if (timetableSlots.isEmpty()) {
             System.out.println("No timetable slots found!");
@@ -381,5 +530,3 @@ public class TimetableMenu {
 
     }
 }
-
-
