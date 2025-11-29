@@ -63,7 +63,7 @@ public class TimetableMenu {
 
         List<TimetableSlot> timetableSlots = timetableManager.getStudentSlots(student, semesterInput);
         printTimetableSlots(timetableSlots);
-        System.exit(0);
+        //System.exit(0);
     }
 
     private void displayLecturerMenu(Lecturer lecturer) {
@@ -102,7 +102,7 @@ public class TimetableMenu {
 
         List<TimetableSlot> timetableSlots = timetableManager.getLecturerSlots(lecturer, semesterInput);
         printTimetableSlots(timetableSlots);
-        System.exit(0);
+        //System.exit(0);
     }
 
     private void displayAdminMenu(Admin admin) {
@@ -150,7 +150,7 @@ public class TimetableMenu {
 
         List<TimetableSlot> timetableSlots = timetableManager.getModuleSlots(moduleCode, semesterInput);
         printTimetableSlots(timetableSlots);
-        System.exit(0);
+        //System.exit(0);
     }
 
     private void viewProgrammeTimetable() {
@@ -163,7 +163,7 @@ public class TimetableMenu {
 
         List<TimetableSlot> timetableSlots = timetableManager.getProgrammeSlots(programmeCode, semesterInput);
         printTimetableSlots(timetableSlots);
-        System.exit(0);
+        //System.exit(0);
     }
 
     private void viewRoomTimetable() {
@@ -176,7 +176,7 @@ public class TimetableMenu {
 
         List<TimetableSlot> timetableSlots = timetableManager.getRoomSlots(roomID, semesterInput);
         printTimetableSlots(timetableSlots);
-        System.exit(0);
+        //System.exit(0);
     }
 
     private void adminViewStudentTimetable() {
@@ -202,7 +202,7 @@ public class TimetableMenu {
 
         List<TimetableSlot> timetableSlots = timetableManager.getStudentSlots(student, semesterInput);
         printTimetableSlots(timetableSlots);
-        System.exit(0);
+        //System.exit(0);
     }
 
     private void adminViewLecturerTimetable() {
@@ -214,9 +214,20 @@ public class TimetableMenu {
         int semesterInput = scanner.nextInt();
         scanner.nextLine();
 
-        List<TimetableSlot> timetableSlots = timetableManager.getLecturerIDSlots(lecturerID, semesterInput);
+        Lecturer lecturer = null;
+        for (User user : users) {
+            if (user instanceof Lecturer && user.getId() == lecturerID) {
+                lecturer = (Lecturer) user;
+            }
+        }
+
+        if (lecturer == null) {
+            System.out.println("Lecturer ID not found");
+        }
+
+        List<TimetableSlot> timetableSlots = timetableManager.getLecturerSlots(lecturer, semesterInput);
         printTimetableSlots(timetableSlots);
-        System.exit(0);
+        //System.exit(0);
     }
 
     private void adminModifySlot() {
@@ -252,53 +263,57 @@ public class TimetableMenu {
         int slotIndex = scanner.nextInt();
         scanner.nextLine();
 
-        if (slotIndex < 1 || slotIndex > allTimetableSlots.size()) {
+        if (slotIndex < 1 || slotIndex > allMatchingSlots.size()) {
             System.out.println("Invalid slot index. Try again!");
             return;
         }
 
-        TimetableSlot updatedSlot = allTimetableSlots.get(slotIndex - 1);
+        TimetableSlot updatedSlot = allMatchingSlots.get(slotIndex - 1);
         System.out.println("Pick a slot field to update: ");
         System.out.println("1. Day");
-        System.out.println("2. Start Time");
-        System.out.println("3. End Time");
-        System.out.println("4. Module Code");
-        System.out.println("5. Class Type");
-        System.out.println("6. Lecturer Name");
-        System.out.println("7. Room ID");
-        int updateChoice = scanner.nextInt();
+        System.out.println("2. Start Time & End Time");
+        System.out.println("3. Module Code");
+        System.out.println("4. Class Type");
+        System.out.println("5. Lecturer Name");
+        System.out.println("6. Room ID");
+        int choice = scanner.nextInt();
         scanner.nextLine();
 
         try {
-            if (updateChoice == 1) {
+            if (choice == 1) {
                 System.out.println("Enter a Day: ");
                 String day = scanner.nextLine();
                 updatedSlot.setDay(day);
-            } else if (updateChoice == 2) {
-                System.out.println("Enter a Start Time: ");
+            } else if (choice == 2) {
+                System.out.println("Enter a Start Time and End Time: ");
                 String startTime = scanner.nextLine();
-                updatedSlot.setStartTime(startTime);
-            } else if (updateChoice == 3) {
-                System.out.println("Enter an End Time: ");
                 String endTime = scanner.nextLine();
+                updatedSlot.setStartTime(startTime);
+                System.out.println();
                 updatedSlot.setEndTime(endTime);
-            } else if (updateChoice == 4) {
+            } else if (choice == 3) {
                 System.out.println("Enter a Module Code: ");
                 String moduleCode = scanner.nextLine();
                 updatedSlot.setModule(moduleCode);
-            } else if (updateChoice == 5) {
+            } else if (choice == 4) {
                 System.out.println("Enter a Class Type: (LECTURE / LAB / TUT)");
                 String classType = scanner.nextLine();
                 ClassType cType = ClassType.valueOf(classType);
                 updatedSlot.setClassType(cType);
-            } else if (updateChoice == 6) {
+            } else if (choice == 5) {
                 System.out.println("Enter a Lecturer Name: ");
                 String lecturerName = scanner.nextLine();
                 updatedSlot.setLecturerName(lecturerName);
+            } else if (choice == 6) {
+                System.out.println("Enter a Room ID: ");
+                String roomID = scanner.nextLine();
+                updatedSlot.setRoom(roomID);
             }
         } catch (Exception e) {
             System.out.println("Invalid choice. Try again!");
         }
+
+        timetableManager.writeGeneratedTimetableToCSV("src/resources/Timetable.csv");
     }
 
     private void printTimetableSlots(List<TimetableSlot> timetableSlots) {

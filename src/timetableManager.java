@@ -371,14 +371,40 @@ public class timetableManager {
                 }
 
                 try {
-                    scheduleClass("lecture", moduleID, m.getLectureHours(), timetableID, semester, days, timeSlots, staffAssignmentList, roomsList, g.getGroupSize());
-                    scheduleClass("lab", moduleID, m.getLabHours(), timetableID, semester, days, timeSlots, staffAssignmentList, roomsList, g.getGroupSize());
-                    scheduleClass("tutorial", moduleID, m.getTutorialHours(), timetableID, semester, days, timeSlots, staffAssignmentList, roomsList, g.getGroupSize());
+                    int requiredLectureHours = m.getLectureHours();
+
+                    if (requiredLectureHours > 0) {
+                        String firstTimetableID = null;
+                        for (TimetableSlot slot : timetableSlots) {
+                            if (slot.getSemester() == semester && slot.getModule().equals(moduleID) && slot.getClassType() == ClassType.LECTURE) {
+                                firstTimetableID = slot.getTimetableID();
+                                break;
+                            }
+                        }
+
+                        if (firstTimetableID == null) {
+                            scheduleClass("lecture", moduleID, m.getLectureHours(), timetableID, semester, days, timeSlots, staffAssignmentList, roomsList, g.getGroupSize());
+                        } else {
+                            for (int i=0; i<timetableSlots.size(); i++) {
+                                TimetableSlot slot = timetableSlots.get(i);
+                                if (slot.getSemester() == semester && slot.getModule().equals(moduleID) && slot.getClassType() == ClassType.LECTURE && slot.getTimetableID().equals(firstTimetableID)) {
+                                    TimetableSlot newSlot = new TimetableSlot(slot.getDay(), slot.getStartTime(), slot.getEndTime(), slot.getModule(), slot.getClassType(), slot.getLecturerName(), slot.getRoomID(), slot.getSemester(), timetableID);
+                                    timetableSlots.add(newSlot);
+                                }
+                            }
+                        }
+                    }
+
+                    if (m.getLabHours() > 0) {
+                        scheduleClass("lab", moduleID, m.getLabHours(), timetableID, semester, days, timeSlots, staffAssignmentList, roomsList, g.getGroupSize());
+                    }
+
+                    if (m.getTutorialHours() > 0) {
+                        scheduleClass("tutorial", moduleID, m.getTutorialHours(), timetableID, semester, days, timeSlots, staffAssignmentList, roomsList, g.getGroupSize());
+                    }
                 } catch (Exception e) {
                     System.out.println("Error: moduled skipped " + moduleID + " due to a clash " + e.getMessage());
                 }
-
-
             }
         }
         System.out.println("DEBUG: Generated " + timetableSlots.size() + " slots for semester " + semester);
@@ -489,11 +515,31 @@ public class timetableManager {
 
     public List<TimetableSlot> getProgrammeSlots(String programmeCode, int semesterInput) {
         List<TimetableSlot> programmeSlots = new ArrayList<>();
+        List<StudentGroup> studentGroupsList = loadStudentGroupCSVData("src/resources/Student_Groups.csv");
+        List<String> programmeGroupID = new ArrayList<>();
+        for (StudentGroup sg : studentGroupsList) {
+            if (sg.getProgrammeID().equals(programmeCode)) {
+                programmeGroupID.add(sg.getGroupID());
+            }
+        }
+
         for (TimetableSlot slot : timetableSlots) {
-            if (slot.getSemester() == semesterInput && slot.getTimetableID().equals(programmeCode)) {
+            if (slot.getSemester() != semesterInput) {
+                continue;
+            }
+
+            boolean programmeGroupIDFound = false;
+            for (String groupID : programmeGroupID) {
+                if (slot.getTimetableID().equals(groupID)) {
+                    programmeGroupIDFound = true;
+                }
+            }
+
+            if (programmeGroupIDFound) {
                 programmeSlots.add(slot);
             }
         }
+
         return programmeSlots;
     }
 
