@@ -8,49 +8,49 @@
 
  */
 public class StudentGroup {
-    private String groupID1; //ID for the group so it can be identified "LM124H1S1_CS4141_Lab1"
-    private String programmeID1;
-    private int programmeYear1;
-    private int groupSize1;
+    private String groupID; //ID for the group so it can be identified "LM124H1S1_CS4141_Lab1"
+    private String programmeID;
+    private int programmeYear;
+    private int groupSize;
 
     public StudentGroup(String programmeID, int programmeYear, String groupID, int groupSize) {
-        this.groupID1 = groupID;
-        this.programmeID1 = programmeID;
-        this.programmeYear1 = programmeYear;
-        this.groupSize1 = groupSize;
+        this.groupID = groupID;
+        this.programmeID = programmeID;
+        this.programmeYear = programmeYear;
+        this.groupSize = groupSize;
 
     }
 
     public String getGroupID() {
-        return groupID1;
+        return groupID;
     }
 
     public void setGroupID(String groupID) {
-        this.groupID1 = groupID;
+        this.groupID = groupID;
     }
 
     public String getProgrammeID() {
-        return programmeID1;
+        return programmeID;
     }
 
     public void setProgrammeID(String programmeID) {
-        this.programmeID1 = programmeID;
+        this.programmeID = programmeID;
     }
 
     public int getProgrammeYear() {
-        return programmeYear1;
+        return programmeYear;
     }
 
     public void setProgrammeYear(int programmeYear) {
-        this.programmeYear1 = programmeYear;
+        this.programmeYear = programmeYear;
     }
 
     public int getGroupSize() {
-        return groupSize1;
+        return groupSize;
     }
 
     public void setGroupSize(int groupSize) {
-        this.groupSize1 = groupSize;
+        this.groupSize = groupSize;
     }
 
 
