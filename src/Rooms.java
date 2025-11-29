@@ -23,7 +23,7 @@ public class Rooms {
         if (RoomId == null || capacity < 0 || roomType == null) {
             throw new IllegalArgumentException("Invalid arguments");
         }
-        if (!validRoomType(roomType)) {
+        if (!validRoomTypes(roomType)) {
             throw new IllegalArgumentException("Invalid Room type " + roomType);
         }
         this.roomID = RoomId;
@@ -62,9 +62,9 @@ public class Rooms {
      * @param roomType The room type to validate
      * @return true if the type exists
      */
-    public Boolean validRoomType(String roomType) {
-        for (int i = 0; i < roomTypes.length; i++) {
-            if (roomTypes[i].equalsIgnoreCase(roomType)) {
+    public Boolean validRoomTypes(String roomType) {
+        for (int n = 0; n < roomTypes.length; n++) {
+            if (roomTypes[n].equalsIgnoreCase(roomType)) {
                 return true;
             }
         }

@@ -45,14 +45,11 @@ public class StudentGroup {
         this.programmeYear = programmeYear;
     }
 
-    public int getGroupSize() {
+    public int getGroupSize() { //
         return groupSize;
     }
 
     public void setGroupSize(int groupSize) {
         this.groupSize = groupSize;
     }
-
-
-
 }
