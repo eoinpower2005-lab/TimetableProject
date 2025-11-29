@@ -1,26 +1,43 @@
 public class StudentRecords {
-    private String moduleCode;
-    private int numStudents;
+    private String ModuleCode;
+    private int NumStudents;
 
+    /**
+     * @param moduleCode the code of the module
+     * @param numStudents the amount of students enrolled in this module
+     */
     public StudentRecords(String moduleCode, int numStudents) {
-        this.moduleCode = moduleCode;
-        this.numStudents = numStudents;
+        this.ModuleCode = moduleCode;
+        this.NumStudents = numStudents;
     }
 
+    /**
+     * @return the codes module
+     */
     public String getModuleCode() {
-        return moduleCode;
+        return ModuleCode;
     }
 
+    /**
+     *
+     * @return the number of students
+     */
     public int getNumStudents() {
-        return numStudents;
+        return NumStudents;
     }
 
+    /**
+     * @param numStudents sets a new student count
+     */
     public void setNumStudents(int numStudents) {
-        this.numStudents = numStudents;
+        this.NumStudents = numStudents;
     }
 
-    public void setModuleCode(String moduleCode) {
-        this.moduleCode = moduleCode;
+    /**
+     * @param ModuleCode sets a new module code
+     */
+    public void setModuleCode(String ModuleCode) {
+        this.ModuleCode = ModuleCode;
     }
 }
 

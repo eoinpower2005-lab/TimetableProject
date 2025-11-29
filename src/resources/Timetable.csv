@@ -1,1 +1,283 @@
 day, start_time, end_time, module_code, class_type, assigned_lecturer, room_id, semester, timetable_id
+Friday, 10:00, 11:00, CS4141, LECTURE, Alan T Ryan, CSG001, 1, 1A
+Wednesday, 12:00, 13:00, CS4141, LECTURE, Alan T Ryan, CSG001, 1, 1A
+Monday, 11:00, 12:00, CS4141, LAB, Imelda Butler, CS1044, 1, 1A
+Friday, 09:00, 10:00, CS4141, LAB, Imelda Butler, CS1044, 1, 1A
+Tuesday, 15:00, 16:00, CS4141, TUT, Imelda Butler, CSG001, 1, 1A
+Thursday, 09:00, 10:00, CS4012, LECTURE, Michael English, CSG001, 1, 1A
+Thursday, 16:00, 17:00, CS4012, LECTURE, Michael English, CSG001, 1, 1A
+Monday, 14:00, 15:00, CS4012, LAB, Caoimhe Cahill, CS1044, 1, 1A
+Tuesday, 17:00, 18:00, CS4012, LAB, Caoimhe Cahill, CS1044, 1, 1A
+Friday, 12:00, 13:00, CS4012, TUT, Caoimhe Cahill, CSG001, 1, 1A
+Monday, 12:00, 13:00, CS4221, LECTURE, Conor Ryan, CSG001, 1, 1A
+Thursday, 11:00, 12:00, CS4221, LECTURE, Conor Ryan, CSG001, 1, 1A
+Monday, 15:00, 16:00, CS4221, LAB, Conor Ryan, CS1044, 1, 1A
+Wednesday, 14:00, 15:00, ET4011, LECTURE, Jacqueline Walker, CSG001, 1, 1A
+Tuesday, 09:00, 10:00, ET4011, LECTURE, Jacqueline Walker, CSG001, 1, 1A
+Wednesday, 16:00, 17:00, ET4011, LAB, Jacqueline Walker, CS1044, 1, 1A
+Monday, 13:00, 14:00, ET4011, TUT, Jacqueline Walker, CSG001, 1, 1A
+Wednesday, 09:00, 10:00, MS4111, LECTURE, Alan O' Brien, CSG001, 1, 1A
+Thursday, 14:00, 15:00, MS4111, LECTURE, Alan O' Brien, CSG001, 1, 1A
+Tuesday, 10:00, 11:00, MS4111, TUT, Alan O' Brien, CSG001, 1, 1A
+Friday, 10:00, 11:00, CS4141, LECTURE, Alan T Ryan, CSG001, 1, 1B
+Wednesday, 12:00, 13:00, CS4141, LECTURE, Alan T Ryan, CSG001, 1, 1B
+Monday, 17:00, 18:00, CS4141, LAB, Imelda Butler, CS1044, 1, 1B
+Tuesday, 09:00, 10:00, CS4141, LAB, Imelda Butler, CS1044, 1, 1B
+Wednesday, 16:00, 17:00, CS4141, TUT, Imelda Butler, CSG001, 1, 1B
+Thursday, 09:00, 10:00, CS4012, LECTURE, Michael English, CSG001, 1, 1B
+Thursday, 16:00, 17:00, CS4012, LECTURE, Michael English, CSG001, 1, 1B
+Monday, 16:00, 17:00, CS4012, LAB, Caoimhe Cahill, CS1044, 1, 1B
+Wednesday, 10:00, 11:00, CS4012, LAB, Caoimhe Cahill, CS1044, 1, 1B
+Monday, 13:00, 14:00, CS4012, TUT, Caoimhe Cahill, CSG027, 1, 1B
+Monday, 12:00, 13:00, CS4221, LECTURE, Conor Ryan, CSG001, 1, 1B
+Thursday, 11:00, 12:00, CS4221, LECTURE, Conor Ryan, CSG001, 1, 1B
+Friday, 12:00, 13:00, CS4221, LAB, Conor Ryan, CS1044, 1, 1B
+Wednesday, 14:00, 15:00, ET4011, LECTURE, Jacqueline Walker, CSG001, 1, 1B
+Tuesday, 09:00, 10:00, ET4011, LECTURE, Jacqueline Walker, CSG001, 1, 1B
+Wednesday, 13:00, 14:00, ET4011, LAB, Jacqueline Walker, CS1044, 1, 1B
+Tuesday, 10:00, 11:00, ET4011, TUT, Jacqueline Walker, CSG027, 1, 1B
+Wednesday, 09:00, 10:00, MS4111, LECTURE, Alan O' Brien, CSG001, 1, 1B
+Thursday, 14:00, 15:00, MS4111, LECTURE, Alan O' Brien, CSG001, 1, 1B
+Wednesday, 15:00, 16:00, MS4111, TUT, Alan O' Brien, CSG001, 1, 1B
+Friday, 10:00, 11:00, CS4141, LECTURE, Alan T Ryan, CSG001, 1, 1C
+Wednesday, 12:00, 13:00, CS4141, LECTURE, Alan T Ryan, CSG001, 1, 1C
+Tuesday, 10:00, 11:00, CS4141, LAB, Imelda Butler, CS1044, 1, 1C
+Tuesday, 17:00, 18:00, CS4141, LAB, Imelda Butler, CS2044, 1, 1C
+Thursday, 16:00, 17:00, CS4141, TUT, Imelda Butler, CSG027, 1, 1C
+Thursday, 09:00, 10:00, CS4012, LECTURE, Michael English, CSG001, 1, 1C
+Thursday, 16:00, 17:00, CS4012, LECTURE, Michael English, CSG001, 1, 1C
+Friday, 09:00, 10:00, CS4012, LAB, Caoimhe Cahill, CS2044, 1, 1C
+Thursday, 17:00, 18:00, CS4012, LAB, Caoimhe Cahill, CS1044, 1, 1C
+Wednesday, 15:00, 16:00, CS4012, TUT, Caoimhe Cahill, CSG027, 1, 1C
+Monday, 12:00, 13:00, CS4221, LECTURE, Conor Ryan, CSG001, 1, 1C
+Thursday, 11:00, 12:00, CS4221, LECTURE, Conor Ryan, CSG001, 1, 1C
+Wednesday, 09:00, 10:00, CS4221, LAB, Conor Ryan, CS1044, 1, 1C
+Wednesday, 14:00, 15:00, ET4011, LECTURE, Jacqueline Walker, CSG001, 1, 1C
+Tuesday, 09:00, 10:00, ET4011, LECTURE, Jacqueline Walker, CSG001, 1, 1C
+Friday, 14:00, 15:00, ET4011, LAB, Jacqueline Walker, CS1044, 1, 1C
+Tuesday, 14:00, 15:00, ET4011, TUT, Jacqueline Walker, CSG001, 1, 1C
+Wednesday, 09:00, 10:00, MS4111, LECTURE, Alan O' Brien, CSG001, 1, 1C
+Thursday, 14:00, 15:00, MS4111, LECTURE, Alan O' Brien, CSG001, 1, 1C
+Friday, 16:00, 17:00, MS4111, TUT, Alan O' Brien, CSG001, 1, 1C
+Friday, 11:00, 12:00, CS4023, LECTURE, Emil Vassev, CSG001, 1, 2A
+Tuesday, 16:00, 17:00, CS4023, LECTURE, Emil Vassev, CSG001, 1, 2A
+Monday, 13:00, 14:00, CS4023, LAB, Dev Raghuwanshi, CS1044, 1, 2A
+Monday, 17:00, 18:00, CS4023, TUT, Dev Raghuwanshi, CSG001, 1, 2A
+Monday, 11:00, 12:00, CS4004, LECTURE, Faeq Alrimawi, CSG001, 1, 2A
+Friday, 15:00, 16:00, CS4004, LECTURE, Faeq Alrimawi, CSG001, 1, 2A
+Monday, 14:00, 15:00, CS4004, LAB, Matthew O' Dwyer, CS2044, 1, 2A
+Tuesday, 15:00, 16:00, CS4004, TUT, Matthew O' Dwyer, CSG027, 1, 2A
+Monday, 12:00, 13:00, CS4178, LECTURE, Fazilat Hojaji, CSG027, 1, 2A
+Wednesday, 09:00, 10:00, CS4178, LECTURE, Fazilat Hojaji, CSG027, 1, 2A
+Friday, 16:00, 17:00, CS4178, LAB, Brendan Golden, CS1044, 1, 2A
+Thursday, 11:00, 12:00, CS4178, TUT, Brendan Golden, CSG027, 1, 2A
+Wednesday, 15:00, 16:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 2A
+Tuesday, 10:00, 11:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 2A
+Wednesday, 16:00, 17:00, CS4416, LAB, Toheeb Jimoh, CS2044, 1, 2A
+Wednesday, 11:00, 12:00, CS4416, TUT, Toheeb Jimoh, CSG001, 1, 2A
+Thursday, 10:00, 11:00, CS4013, LECTURE, Michael English, CSG001, 1, 2A
+Thursday, 17:00, 18:00, CS4013, LECTURE, Michael English, CSG001, 1, 2A
+Thursday, 14:00, 15:00, CS4013, LAB, Caoimhe Cahill, CS1044, 1, 2A
+Friday, 13:00, 14:00, CS4013, TUT, Caoimhe Cahill, CSG001, 1, 2A
+Friday, 11:00, 12:00, CS4023, LECTURE, Emil Vassev, CSG001, 1, 2B
+Tuesday, 16:00, 17:00, CS4023, LECTURE, Emil Vassev, CSG001, 1, 2B
+Friday, 17:00, 18:00, CS4023, LAB, Dev Raghuwanshi, CS1044, 1, 2B
+Thursday, 17:00, 18:00, CS4023, TUT, Dev Raghuwanshi, CSG027, 1, 2B
+Monday, 11:00, 12:00, CS4004, LECTURE, Faeq Alrimawi, CSG001, 1, 2B
+Friday, 15:00, 16:00, CS4004, LECTURE, Faeq Alrimawi, CSG001, 1, 2B
+Thursday, 15:00, 16:00, CS4004, LAB, Matthew O' Dwyer, CS1044, 1, 2B
+Wednesday, 09:00, 10:00, CS4004, TUT, Matthew O' Dwyer, KBG12, 1, 2B
+Monday, 12:00, 13:00, CS4178, LECTURE, Fazilat Hojaji, CSG027, 1, 2B
+Wednesday, 09:00, 10:00, CS4178, LECTURE, Fazilat Hojaji, CSG027, 1, 2B
+Wednesday, 17:00, 18:00, CS4178, LAB, Brendan Golden, CS1044, 1, 2B
+Monday, 13:00, 14:00, CS4178, TUT, Brendan Golden, KBG12, 1, 2B
+Wednesday, 15:00, 16:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 2B
+Tuesday, 10:00, 11:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 2B
+Thursday, 16:00, 17:00, CS4416, LAB, Toheeb Jimoh, CS1044, 1, 2B
+Wednesday, 12:00, 13:00, CS4416, TUT, Toheeb Jimoh, CSG027, 1, 2B
+Thursday, 10:00, 11:00, CS4013, LECTURE, Michael English, CSG001, 1, 2B
+Thursday, 17:00, 18:00, CS4013, LECTURE, Michael English, CSG001, 1, 2B
+Monday, 09:00, 10:00, CS4013, LAB, Caoimhe Cahill, CS1044, 1, 2B
+Thursday, 09:00, 10:00, CS4013, TUT, Caoimhe Cahill, CSG027, 1, 2B
+Friday, 11:00, 12:00, CS4023, LECTURE, Emil Vassev, CSG001, 1, 2C
+Tuesday, 16:00, 17:00, CS4023, LECTURE, Emil Vassev, CSG001, 1, 2C
+Thursday, 12:00, 13:00, CS4023, LAB, Dev Raghuwanshi, CS1044, 1, 2C
+Tuesday, 09:00, 10:00, CS4023, TUT, Dev Raghuwanshi, CSG027, 1, 2C
+Monday, 11:00, 12:00, CS4004, LECTURE, Faeq Alrimawi, CSG001, 1, 2C
+Friday, 15:00, 16:00, CS4004, LECTURE, Faeq Alrimawi, CSG001, 1, 2C
+Wednesday, 14:00, 15:00, CS4004, LAB, Matthew O' Dwyer, CS1044, 1, 2C
+Wednesday, 13:00, 14:00, CS4004, TUT, Matthew O' Dwyer, CSG001, 1, 2C
+Monday, 12:00, 13:00, CS4178, LECTURE, Fazilat Hojaji, CSG027, 1, 2C
+Wednesday, 09:00, 10:00, CS4178, LECTURE, Fazilat Hojaji, CSG027, 1, 2C
+Monday, 16:00, 17:00, CS4178, LAB, Brendan Golden, CS2044, 1, 2C
+Friday, 14:00, 15:00, CS4178, TUT, Brendan Golden, CSG001, 1, 2C
+Wednesday, 15:00, 16:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 2C
+Tuesday, 10:00, 11:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 2C
+Tuesday, 12:00, 13:00, CS4416, LAB, Toheeb Jimoh, CS1044, 1, 2C
+Tuesday, 14:00, 15:00, CS4416, TUT, Toheeb Jimoh, CSG027, 1, 2C
+Thursday, 10:00, 11:00, CS4013, LECTURE, Michael English, CSG001, 1, 2C
+Thursday, 17:00, 18:00, CS4013, LECTURE, Michael English, CSG001, 1, 2C
+Tuesday, 11:00, 12:00, CS4013, LAB, Caoimhe Cahill, CS1044, 1, 2C
+Thursday, 15:00, 16:00, CS4013, TUT, Caoimhe Cahill, CSG001, 1, 2C
+Thursday, 13:00, 14:00, EN4033, LECTURE, Joanne O' Flaherty, CSG001, 1, 3A
+Tuesday, 14:00, 15:00, EN4033, LECTURE, Joanne O' Flaherty, KBG12, 1, 3A
+Friday, 12:00, 13:00, EN4033, LAB, Joanne O' Flaherty, CS2044, 1, 3A
+Thursday, 14:00, 15:00, MS4131, LECTURE, Kevin Moroney, CSG027, 1, 3A
+Thursday, 10:00, 11:00, MS4131, LECTURE, Kevin Moroney, CSG027, 1, 3A
+Monday, 14:00, 15:00, MS4131, TUT, Kevin Moroney, CSG001, 1, 3A
+Wednesday, 15:00, 16:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 3A
+Tuesday, 10:00, 11:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 3A
+Friday, 14:00, 15:00, CS4416, LAB, Toheeb Jimoh, CS2044, 1, 3A
+Tuesday, 17:00, 18:00, CS4416, TUT, Toheeb Jimoh, CSG001, 1, 3A
+Wednesday, 17:00, 18:00, EN4063, LECTURE, Patrick Johnson, CSG001, 1, 3A
+Wednesday, 11:00, 12:00, EN4063, TUT, Patrick Johnson, CSG027, 1, 3A
+Monday, 10:00, 11:00, EN4053, LECTURE, Conor Power, CSG001, 1, 3A
+Friday, 10:00, 11:00, EN4053, TUT, Conor Power, CSG027, 1, 3A
+Thursday, 10:00, 11:00, CS4013, LECTURE, Michael English, CSG001, 1, 3A
+Thursday, 17:00, 18:00, CS4013, LECTURE, Michael English, CSG001, 1, 3A
+Thursday, 12:00, 13:00, CS4013, LAB, Caoimhe Cahill, CS2044, 1, 3A
+Monday, 12:00, 13:00, CS4013, TUT, Caoimhe Cahill, KBG12, 1, 3A
+Thursday, 13:00, 14:00, EN4033, LECTURE, Joanne O' Flaherty, CSG001, 1, 3B
+Tuesday, 14:00, 15:00, EN4033, LECTURE, Joanne O' Flaherty, KBG12, 1, 3B
+Friday, 10:00, 11:00, EN4033, LAB, Joanne O' Flaherty, CS1044, 1, 3B
+Thursday, 14:00, 15:00, MS4131, LECTURE, Kevin Moroney, CSG027, 1, 3B
+Thursday, 10:00, 11:00, MS4131, LECTURE, Kevin Moroney, CSG027, 1, 3B
+Tuesday, 15:00, 16:00, MS4131, TUT, Kevin Moroney, KBG12, 1, 3B
+Wednesday, 15:00, 16:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 3B
+Tuesday, 10:00, 11:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 3B
+Friday, 13:00, 14:00, CS4416, LAB, Toheeb Jimoh, CS1044, 1, 3B
+Thursday, 15:00, 16:00, CS4416, TUT, Toheeb Jimoh, CSG027, 1, 3B
+Wednesday, 17:00, 18:00, EN4063, LECTURE, Patrick Johnson, CSG001, 1, 3B
+Thursday, 11:00, 12:00, EN4063, TUT, Patrick Johnson, KBG12, 1, 3B
+Monday, 10:00, 11:00, EN4053, LECTURE, Conor Power, CSG001, 1, 3B
+Thursday, 12:00, 13:00, EN4053, TUT, Conor Power, CSG001, 1, 3B
+Thursday, 10:00, 11:00, CS4013, LECTURE, Michael English, CSG001, 1, 3B
+Thursday, 17:00, 18:00, CS4013, LECTURE, Michael English, CSG001, 1, 3B
+Wednesday, 13:00, 14:00, CS4013, LAB, Caoimhe Cahill, CS2044, 1, 3B
+Tuesday, 16:00, 17:00, CS4013, TUT, Caoimhe Cahill, CSG027, 1, 3B
+Thursday, 13:00, 14:00, EN4033, LECTURE, Joanne O' Flaherty, CSG001, 1, 3C
+Tuesday, 14:00, 15:00, EN4033, LECTURE, Joanne O' Flaherty, KBG12, 1, 3C
+Monday, 17:00, 18:00, EN4033, LAB, Joanne O' Flaherty, CS2044, 1, 3C
+Thursday, 14:00, 15:00, MS4131, LECTURE, Kevin Moroney, CSG027, 1, 3C
+Thursday, 10:00, 11:00, MS4131, LECTURE, Kevin Moroney, CSG027, 1, 3C
+Tuesday, 09:00, 10:00, MS4131, TUT, Kevin Moroney, KBG12, 1, 3C
+Wednesday, 15:00, 16:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 3C
+Tuesday, 10:00, 11:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 3C
+Tuesday, 13:00, 14:00, CS4416, LAB, Toheeb Jimoh, CS1044, 1, 3C
+Wednesday, 17:00, 18:00, CS4416, TUT, Toheeb Jimoh, CSG027, 1, 3C
+Wednesday, 17:00, 18:00, EN4063, LECTURE, Patrick Johnson, CSG001, 1, 3C
+Monday, 11:00, 12:00, EN4063, TUT, Patrick Johnson, CSG027, 1, 3C
+Monday, 10:00, 11:00, EN4053, LECTURE, Conor Power, CSG001, 1, 3C
+Friday, 16:00, 17:00, EN4053, TUT, Conor Power, CSG027, 1, 3C
+Thursday, 10:00, 11:00, CS4013, LECTURE, Michael English, CSG001, 1, 3C
+Thursday, 17:00, 18:00, CS4013, LECTURE, Michael English, CSG001, 1, 3C
+Friday, 17:00, 18:00, CS4013, LAB, Caoimhe Cahill, CS2044, 1, 3C
+Friday, 11:00, 12:00, CS4013, TUT, Caoimhe Cahill, CSG027, 1, 3C
+Thursday, 10:00, 11:00, CS4013, LECTURE, Michael English, CSG001, 1, 4A
+Thursday, 17:00, 18:00, CS4013, LECTURE, Michael English, CSG001, 1, 4A
+Monday, 15:00, 16:00, CS4013, LAB, Caoimhe Cahill, CS2044, 1, 4A
+Wednesday, 14:00, 15:00, CS4013, TUT, Caoimhe Cahill, CSG027, 1, 4A
+Friday, 11:00, 12:00, CS4023, LECTURE, Emil Vassev, CSG001, 1, 4A
+Tuesday, 16:00, 17:00, CS4023, LECTURE, Emil Vassev, CSG001, 1, 4A
+Tuesday, 11:00, 12:00, CS4023, LAB, Dev Raghuwanshi, CS2044, 1, 4A
+Monday, 14:00, 15:00, CS4023, TUT, Dev Raghuwanshi, CSG027, 1, 4A
+Wednesday, 15:00, 16:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 4A
+Tuesday, 10:00, 11:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 4A
+Tuesday, 09:00, 10:00, CS4416, LAB, Toheeb Jimoh, CS2044, 1, 4A
+Monday, 17:00, 18:00, CS4416, TUT, Toheeb Jimoh, CSG027, 1, 4A
+Monday, 11:00, 12:00, CS4004, LECTURE, Faeq Alrimawi, CSG001, 1, 4A
+Friday, 15:00, 16:00, CS4004, LECTURE, Faeq Alrimawi, CSG001, 1, 4A
+Thursday, 09:00, 10:00, CS4004, LAB, Matthew O' Dwyer, CS1044, 1, 4A
+Wednesday, 17:00, 18:00, CS4004, TUT, Matthew O' Dwyer, KBG12, 1, 4A
+Monday, 10:00, 11:00, CS4093, LECTURE, Tabea De Wille, CSG027, 1, 4A
+Wednesday, 13:00, 14:00, CS4093, TUT, Tabea De Wille, CSG027, 1, 4A
+Thursday, 10:00, 11:00, CS4013, LECTURE, Michael English, CSG001, 1, 4B
+Thursday, 17:00, 18:00, CS4013, LECTURE, Michael English, CSG001, 1, 4B
+Tuesday, 15:00, 16:00, CS4013, LAB, Caoimhe Cahill, CS1044, 1, 4B
+Monday, 11:00, 12:00, CS4013, TUT, Caoimhe Cahill, KBG12, 1, 4B
+Friday, 11:00, 12:00, CS4023, LECTURE, Emil Vassev, CSG001, 1, 4B
+Tuesday, 16:00, 17:00, CS4023, LECTURE, Emil Vassev, CSG001, 1, 4B
+Wednesday, 12:00, 13:00, CS4023, LAB, Dev Raghuwanshi, CS1044, 1, 4B
+Wednesday, 14:00, 15:00, CS4023, TUT, Dev Raghuwanshi, KBG12, 1, 4B
+Wednesday, 15:00, 16:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 4B
+Tuesday, 10:00, 11:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 4B
+Friday, 10:00, 11:00, CS4416, LAB, Toheeb Jimoh, CS2044, 1, 4B
+Monday, 15:00, 16:00, CS4416, TUT, Toheeb Jimoh, CSG001, 1, 4B
+Monday, 11:00, 12:00, CS4004, LECTURE, Faeq Alrimawi, CSG001, 1, 4B
+Friday, 15:00, 16:00, CS4004, LECTURE, Faeq Alrimawi, CSG001, 1, 4B
+Wednesday, 10:00, 11:00, CS4004, LAB, Matthew O' Dwyer, CS2044, 1, 4B
+Tuesday, 12:00, 13:00, CS4004, TUT, Matthew O' Dwyer, CSG001, 1, 4B
+Monday, 10:00, 11:00, CS4093, LECTURE, Tabea De Wille, CSG027, 1, 4B
+Friday, 14:00, 15:00, CS4093, TUT, Tabea De Wille, CSG027, 1, 4B
+Thursday, 10:00, 11:00, CS4013, LECTURE, Michael English, CSG001, 1, 4C
+Thursday, 17:00, 18:00, CS4013, LECTURE, Michael English, CSG001, 1, 4C
+Friday, 16:00, 17:00, CS4013, LAB, Caoimhe Cahill, CS2044, 1, 4C
+Thursday, 16:00, 17:00, CS4013, TUT, Caoimhe Cahill, KBG12, 1, 4C
+Friday, 11:00, 12:00, CS4023, LECTURE, Emil Vassev, CSG001, 1, 4C
+Tuesday, 16:00, 17:00, CS4023, LECTURE, Emil Vassev, CSG001, 1, 4C
+Tuesday, 10:00, 11:00, CS4023, LAB, Dev Raghuwanshi, CS2044, 1, 4C
+Tuesday, 17:00, 18:00, CS4023, TUT, Dev Raghuwanshi, CSG027, 1, 4C
+Wednesday, 15:00, 16:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 4C
+Tuesday, 10:00, 11:00, CS4416, LECTURE, Nikola Nikolov, KBG12, 1, 4C
+Monday, 13:00, 14:00, CS4416, LAB, Toheeb Jimoh, CS2044, 1, 4C
+Monday, 14:00, 15:00, CS4416, TUT, Toheeb Jimoh, KBG12, 1, 4C
+Monday, 11:00, 12:00, CS4004, LECTURE, Faeq Alrimawi, CSG001, 1, 4C
+Friday, 15:00, 16:00, CS4004, LECTURE, Faeq Alrimawi, CSG001, 1, 4C
+Monday, 12:00, 13:00, CS4004, LAB, Matthew O' Dwyer, CS1044, 1, 4C
+Friday, 09:00, 10:00, CS4004, TUT, Matthew O' Dwyer, CSG001, 1, 4C
+Monday, 10:00, 11:00, CS4093, LECTURE, Tabea De Wille, CSG027, 1, 4C
+Friday, 12:00, 13:00, CS4093, TUT, Tabea De Wille, CSG027, 1, 4C
+Monday, 12:00, 13:00, CS4142, LECTURE, John O Connor, CSG001, 2, 1A
+Wednesday, 12:00, 13:00, CS4142, LECTURE, John O Connor, CSG001, 2, 1A
+Monday, 14:00, 15:00, CS4142, LAB, John O Connor, CS1044, 2, 1A
+Thursday, 11:00, 12:00, CS4142, TUT, John O Connor, CSG001, 2, 1A
+Thursday, 15:00, 16:00, CS4182, LECTURE, Michael English, CSG001, 2, 1A
+Monday, 17:00, 18:00, CS4182, LECTURE, Michael English, CSG001, 2, 1A
+Monday, 13:00, 14:00, CS4182, LAB, Caoimhe Cahill, CS1044, 2, 1A
+Thursday, 09:00, 10:00, CS4182, TUT, Caoimhe Cahill, CSG001, 2, 1A
+Thursday, 10:00, 11:00, CS4222, LECTURE, Alan T Ryan, CSG001, 2, 1A
+Monday, 11:00, 12:00, CS4222, LECTURE, Alan T Ryan, CSG001, 2, 1A
+Thursday, 14:00, 15:00, CS4222, LAB, Imelda Butler, CS1044, 2, 1A
+Tuesday, 16:00, 17:00, ET4012, LECTURE, Jacqueline Walker, CSG001, 2, 1A
+Friday, 09:00, 10:00, ET4012, LECTURE, Jacqueline Walker, CSG001, 2, 1A
+Wednesday, 16:00, 17:00, ET4012, LAB, Jacqueline Walker, CS1044, 2, 1A
+Tuesday, 12:00, 13:00, ET4012, TUT, Jacqueline Walker, CSG001, 2, 1A
+Monday, 10:00, 11:00, MA4052, LECTURE, Kevin Moroney, CSG001, 2, 1A
+Wednesday, 15:00, 16:00, MA4052, LECTURE, Kevin Moroney, CSG001, 2, 1A
+Friday, 11:00, 12:00, MA4052, TUT, Kevin Moroney, CSG001, 2, 1A
+Monday, 12:00, 13:00, CS4142, LECTURE, John O Connor, CSG001, 2, 1B
+Wednesday, 12:00, 13:00, CS4142, LECTURE, John O Connor, CSG001, 2, 1B
+Thursday, 17:00, 18:00, CS4142, LAB, John O Connor, CS1044, 2, 1B
+Wednesday, 09:00, 10:00, CS4142, TUT, John O Connor, CSG001, 2, 1B
+Thursday, 15:00, 16:00, CS4182, LECTURE, Michael English, CSG001, 2, 1B
+Monday, 17:00, 18:00, CS4182, LECTURE, Michael English, CSG001, 2, 1B
+Thursday, 16:00, 17:00, CS4182, LAB, Caoimhe Cahill, CS1044, 2, 1B
+Thursday, 14:00, 15:00, CS4182, TUT, Caoimhe Cahill, CSG001, 2, 1B
+Thursday, 10:00, 11:00, CS4222, LECTURE, Alan T Ryan, CSG001, 2, 1B
+Monday, 11:00, 12:00, CS4222, LECTURE, Alan T Ryan, CSG001, 2, 1B
+Friday, 16:00, 17:00, CS4222, LAB, Imelda Butler, CS1044, 2, 1B
+Tuesday, 16:00, 17:00, ET4012, LECTURE, Jacqueline Walker, CSG001, 2, 1B
+Friday, 09:00, 10:00, ET4012, LECTURE, Jacqueline Walker, CSG001, 2, 1B
+Wednesday, 14:00, 15:00, ET4012, LAB, Jacqueline Walker, CS1044, 2, 1B
+Tuesday, 17:00, 18:00, ET4012, TUT, Jacqueline Walker, CSG001, 2, 1B
+Monday, 10:00, 11:00, MA4052, LECTURE, Kevin Moroney, CSG001, 2, 1B
+Wednesday, 15:00, 16:00, MA4052, LECTURE, Kevin Moroney, CSG001, 2, 1B
+Thursday, 13:00, 14:00, MA4052, TUT, Kevin Moroney, CSG001, 2, 1B
+Monday, 12:00, 13:00, CS4142, LECTURE, John O Connor, CSG001, 2, 1C
+Wednesday, 12:00, 13:00, CS4142, LECTURE, John O Connor, CSG001, 2, 1C
+Tuesday, 14:00, 15:00, CS4142, LAB, John O Connor, CS1044, 2, 1C
+Monday, 15:00, 16:00, CS4142, TUT, John O Connor, CSG001, 2, 1C
+Thursday, 15:00, 16:00, CS4182, LECTURE, Michael English, CSG001, 2, 1C
+Monday, 17:00, 18:00, CS4182, LECTURE, Michael English, CSG001, 2, 1C
+Monday, 11:00, 12:00, CS4182, LAB, Caoimhe Cahill, CS1044, 2, 1C
+Tuesday, 16:00, 17:00, CS4182, TUT, Caoimhe Cahill, CSG027, 2, 1C
+Thursday, 10:00, 11:00, CS4222, LECTURE, Alan T Ryan, CSG001, 2, 1C
+Monday, 11:00, 12:00, CS4222, LECTURE, Alan T Ryan, CSG001, 2, 1C
+Wednesday, 13:00, 14:00, CS4222, LAB, Imelda Butler, CS1044, 2, 1C
+Tuesday, 16:00, 17:00, ET4012, LECTURE, Jacqueline Walker, CSG001, 2, 1C
+Friday, 09:00, 10:00, ET4012, LECTURE, Jacqueline Walker, CSG001, 2, 1C
+Monday, 10:00, 11:00, ET4012, LAB, Jacqueline Walker, CS1044, 2, 1C
+Tuesday, 13:00, 14:00, ET4012, TUT, Jacqueline Walker, CSG001, 2, 1C
+Monday, 10:00, 11:00, MA4052, LECTURE, Kevin Moroney, CSG001, 2, 1C
+Wednesday, 15:00, 16:00, MA4052, LECTURE, Kevin Moroney, CSG001, 2, 1C
+Tuesday, 15:00, 16:00, MA4052, TUT, Kevin Moroney, CSG001, 2, 1C
