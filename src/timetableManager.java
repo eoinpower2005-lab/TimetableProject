@@ -305,7 +305,7 @@ public class timetableManager {
 
     /**
      * this method schedules timetable slots for a module for the required module contact hours.
-     * schedules slots for lectures, labs, and tutorials.
+     * schedules slots for lectures, labs and tutorials.
      * gets the assigned lecturer/teaching assistant for a module.
      * use of enum learned from geeksforgeeks.
      * a 2D array of type boolean which keeps track of the days and time slots already tried to schedule a class.

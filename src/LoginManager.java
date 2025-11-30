@@ -73,7 +73,7 @@ public class LoginManager {
     }
 
     /**
-     * returns the list of users loaded from the csv file
+     * getter method for all users in the list.
      * @return returns list of users loaded from the Users.csv.
      */
     public List<User> getUsers() {
