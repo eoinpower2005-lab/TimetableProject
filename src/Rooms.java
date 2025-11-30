@@ -6,28 +6,28 @@
 //
 public class Rooms {
     private String roomID; //csg001
-    private int capacity; //300
+    private int roomCapacity; //300
     private String roomType;//lecture hall
     private boolean isAvailable;
     private static final String[] roomTypes = {"teaching", "CSlab"};
 
     /**
      *
-     * @param RoomId the unique identifier for the room(must be null)
+     * @param roomId the unique identifier for the room(must be null)
      * @param roomType the type of room being used.
-     * @param capacity The max number of people inside the room
+     * @param roomCapacity The max number of people inside the room
      *
      * @throws IllegalArgumentException If the argument is invalid or the room type is not recognizable
      */
-    public Rooms(String RoomId, String roomType, int capacity) {
-        if (RoomId == null || capacity < 0 || roomType == null) {
+    public Rooms(String roomId, String roomType, int roomCapacity) {
+        if (roomId == null || roomCapacity < 0 || roomType == null) {
             throw new IllegalArgumentException("Invalid arguments");
         }
         if (!validRoomType(roomType)) {
             throw new IllegalArgumentException("Invalid Room type " + roomType);
         }
-        this.roomID = RoomId;
-        this.capacity = capacity;
+        this.roomID = roomId;
+        this.roomCapacity = roomCapacity;
         this.roomType = roomType;
         this.isAvailable = isAvailable;
     }
@@ -41,8 +41,8 @@ public class Rooms {
      *
      * @return the rooms capacity
      */
-    public final int getCapacity() {
-        return capacity;}
+    public final int getRoomCapacity() {
+        return roomCapacity;}
 
     /**
      * @return the rooms type
