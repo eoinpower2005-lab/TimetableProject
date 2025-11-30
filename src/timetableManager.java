@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -488,7 +487,7 @@ public class timetableManager {
     private String isRoomSuitable(String day, String classType, int groupSize, List<Rooms> roomsList, String startTime, String endTime, int semester, String lecturerName, String timetableID) {
         for (Rooms r : roomsList) {
             String roomType = r.getType();
-            int capacity = r.getCapacity();
+            int capacity = r.getRoomCapacity();
 
             boolean isLabRoom = roomType.equalsIgnoreCase("CSlab");
             boolean isTeachingRoom = roomType.equalsIgnoreCase("teaching");
