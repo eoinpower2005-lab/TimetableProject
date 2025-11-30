@@ -4,16 +4,17 @@ import java.util.List;
 import java.util.Collections;
 import java.util.Random;
 
-/*
- * Manages a collection of timetable slots and enforces basic constraints.
+/**
+ * this class manages all generated timetable slots and the updating of timetable slots.
+ * this class is responsible for loading all data from csv files, scheduling and generating a timetable, getters for timetable queries.
  */
 public class timetableManager {
 
     private List<TimetableSlot> timetableSlots = new ArrayList<>();
 
     /**
-     * No-arg constructor initialises an empty timetable.
-     * (Optionally, you could load from a CSV here.)
+     * a no-arg constructor that loads all timetable data from the Timetable.csv into a list timetableSlots.
+     * if the timetableSlots list is empty, generateTimetable method is called and writes to the csv.
      */
     public timetableManager() {
         String filename = "src/resources/Timetable.csv";
@@ -22,21 +23,20 @@ public class timetableManager {
 
         if (this.timetableSlots == null || this.timetableSlots.isEmpty()) {
             this.timetableSlots = new ArrayList<>();
-            System.out.println("DEBUG: List is empty, calling generateTimetable(1) and generateTimetable(2)");
             generateTimetable(1);
             generateTimetable(2);
             writeGeneratedTimetableToCSV(filename);
-        } else {
-            System.out.println("DEBUG: Loaded " + timetableSlots.size() + " slots from CSV. No generation needed.");
         }
     }
 
     /**
-     * Adds a new slot to the timetable if there are no clashes.
-     *
-     * @throws IllegalArgumentException if the slot clashes with existing slots.
+     * csv loader method that loads all data written to the Timetable.csv.
+     * loops through each row in the csv and stores the data separated by commas in variables.
+     * adds the data in each row to a list timetableSlots.
+     * exception handling if the file path is incorrect.
+     * @param filename the csv file Timetable.csv.
+     * @return returns the list timetableSlots.
      */
-
     public static List<TimetableSlot> loadTimetableCSVData(String filename) {
         List<TimetableSlot> timetableSlots = new ArrayList<>();
 
@@ -67,6 +67,14 @@ public class timetableManager {
         return timetableSlots;
     }
 
+    /**
+     * csv loader method that loads all data stored in the Programme_structure.csv.
+     * loops through each row in the csv and stores the data separated by commas in variables.
+     * adds the data in each row to a list programmeStructureList.
+     * exception handling if the file path is incorrect.
+     * @param filename the csv file Programme_structure.csv.
+     * @return returns the list programmeStructureList.
+     */
     public static List<Programme> loadProgrammeStructureCSVData(String filename) {
         List<Programme> programmeStructureList = new ArrayList<>();
 
@@ -89,6 +97,14 @@ public class timetableManager {
         return programmeStructureList;
     }
 
+    /**
+     * csv loader method that loads all data stored in the csv Module_contact_hours.csv.
+     * loops through each row in the csv and stores the data separated by commas in variables.
+     * adds the data in each row to a list moduleContactHoursList.
+     * exception handling if the file path is incorrect.
+     * @param filename the csv file Module_contact_hours.csv.
+     * @return returns the list moduleContactHoursList.
+     */
     public static List<ModuleContactHours> loadModuleContactHoursCSVData(String filename) {
         List<ModuleContactHours> moduleContactHoursList = new ArrayList<>();
 
@@ -111,6 +127,14 @@ public class timetableManager {
         return moduleContactHoursList;
     }
 
+    /**
+     * csv loader method that loads all data stored in the csv Rooms.csv.
+     * loops through each row in the csv and stores the data separated by commas in variables.
+     * adds the data in each row to a list roomsList.
+     * exception handling if the file path is incorrect.
+     * @param filename the csv file Rooms.csv.
+     * @return returns the list roomsList.
+     */
     public static List<Rooms> loadRoomsCSVData(String filename) {
         List<Rooms> roomsList = new ArrayList<>();
 
@@ -132,6 +156,15 @@ public class timetableManager {
         return roomsList;
     }
 
+    /**
+     * csv loader method that loads all data stored in the csv Staff_assignment.csv.
+     * loops through each row in the csv and stores the data separated by commas in variables.
+     * checks if the size of the array fields is equal to 3 or 4. Lectures do not have a set capacity.
+     * adds the data in each row to a list staffAssignmentList.
+     * exception handling if the file path is incorrect.
+     * @param filename the csv file Staff_assignment.csv.
+     * @return returns the list staffAssignmentList.
+     */
     public static List<StaffAssignment> loadStaffAssignmentCSVData(String filename) {
         List<StaffAssignment> staffAssignmentList  = new ArrayList<>();
 
@@ -162,6 +195,14 @@ public class timetableManager {
         return staffAssignmentList;
     }
 
+    /**
+     * csv loader method that loads all data stored in the csv Module_Enrollment.csv.
+     * loops through each row in the csv and stores the data separated by commas in variables.
+     * adds the data in each row to a list moduleEnrollmentList.
+     * exception handling if the file path is incorrect.
+     * @param filename the csv file Module_Enrollment.csv.
+     * @return returns the list moduleEnrollmentList.
+     */
     public static List<StudentRecords> loadModuleEnrollmentCSVData(String filename) {
         List<StudentRecords> moduleEnrollmentList = new ArrayList<>();
 
@@ -182,6 +223,14 @@ public class timetableManager {
         return moduleEnrollmentList;
     }
 
+    /**
+     * csv loader method that loads all data stored in the csv Student_Groups.csv.
+     * loops through each row in the csv and stores the data separated by commas in variables.
+     * adds the data in each row to a list moduleEnrollmentList.
+     * exception handling if the file path is incorrect.
+     * @param filename the csv file Student_Groups.csv.
+     * @return returns the list studentGroupList.
+     */
     public static List<StudentGroup> loadStudentGroupCSVData(String filename) {
         List<StudentGroup> studentGroupList = new ArrayList<>();
 
@@ -255,6 +304,30 @@ public class timetableManager {
         return roomsList.get(0);
     }
 
+    /**
+     * this method schedules timetable slots for a module for the required module contact hours.
+     * schedules slots for lectures, labs, and tutorials.
+     * gets the assigned lecturer/teaching assistant for a module.
+     * use of enum learned from geeksforgeeks.
+     * a 2D array of type boolean which keeps track of the days and time slots already tried to schedule a class.
+     * a while loop that loops until the number of scheduled hours matches the required hours
+     * and the number of iterations is less than the total combinations of days and time slots.
+     * a do while loop that randomly chooses a day and time slot and stores them in variables.
+     * this day and time combination is then added to the 2D array slotsTried.
+     * checks if the room is suitable and stores it in a variable.
+     * adds a slot to the list timetableSlots with the correct data.
+     * prints a message if it was not possible to schedule all required module contact hours.
+     * @param classType the type of class to be scheduled e.g. lecture, lab, tutorial.
+     * @param moduleID the id of the module to be schedule e.g. CS4012.
+     * @param requiredHours the number of module contact hours e.g. 2 lecture hours, 1 tutorial hour, 2 lab hours.
+     * @param timetableID the id for a student's timetable.
+     * @param semester the semester a slot should be scheduled for e.g. 1 or 2.
+     * @param days array of days in the week.
+     * @param timeSlots array of time slots per day.
+     * @param staffAssignmentList list of lecturers/teaching assistants assigned to a module.
+     * @param roomsList a list of rooms that can be used for a slot to be scheduled.
+     * @param groupSize number of students per student group.
+     */
     private void scheduleClass(String classType, String moduleID, int requiredHours, String timetableID, int semester, String[] days, String[] timeSlots, List<StaffAssignment> staffAssignmentList, List<Rooms> roomsList, int groupSize) {
 
         if (requiredHours <= 0) {
@@ -324,10 +397,8 @@ public class timetableManager {
         }
 
         if (scheduledHours < requiredHours) {
-            System.out.println("WARNING: Could not schedule all " + requiredHours + " hours of "
-                    + classType + " for module " + moduleID
-                    + " (group " + timetableID + ", semester " + semester + "). "
-                    + "Scheduled only " + scheduledHours + " hour(s).");
+            System.out.println("Could not schedule " + requiredHours + " hours of "
+                    + classType + " for module " + moduleID + " for group " + timetableID + ", semester " + semester + ".");
         }
     }
 
