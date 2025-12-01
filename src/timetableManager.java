@@ -421,7 +421,7 @@ public class timetableManager {
     }
 
     /**
-     * This method generates all timetables for a given semester
+     * This method generates all timetables for any given semester
      * It loads programme structures, module contact hours, rooms staff assignments,
      * student module enrollments and student groups from csv files.
      * It loops through all the student groups  and will match the user to modules based on programme, year and semster.
