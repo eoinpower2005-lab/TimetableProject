@@ -11,17 +11,20 @@ public class LoginManager {
     private List<User> users;
 
     /**
-     * no-arg constructor that loads all data from csv files into a list called users
+     * no-arg constructor that calls the loadUserCsvData method for the csv file Users.csv.
+     * stores the data from the load method in the list users.
      */
     public LoginManager() {
         this.users = loadUserCsvData("src/resources/Users.csv");
     }
 
     /**
-     * loads data from a csv file
+     * this method loads data from the csv file Users.csv.
+     * a list users of type User.
+     * loops through the csv file row by row and stores the data separated by commas in variables.
      * constructs different user objects which is determined by the role
-     * user objects added to a list of users
-     * @param filename path reference of the csv file being read
+     * user objects added to a list users
+     * @param filename path reference of the csv file Users.csv.
      * @return returns a list of users read from the csv file
      */
     public static List<User> loadUserCsvData(String filename) {
@@ -55,10 +58,10 @@ public class LoginManager {
     }
 
     /**
-     * authenticates user login attempts by comparing the entered userid and password to the stored data.
-     * @param userid the userid entered at login
-     * @param password the password entered at login
-     * @return returns true or false depending on login outcome
+     * this method authenticates user login attempts by comparing the entered userid and password to the stored data.
+     * @param userid the userid entered at login.
+     * @param password the password entered at login.
+     * @return returns the user object.
      */
     public User authenticate(int userid, String password) {
         for (User user : users) {
@@ -70,8 +73,8 @@ public class LoginManager {
     }
 
     /**
-     * returns the list of users loaded from the csv file
-     * @return returns list of users loaded
+     * getter method for all users in the list.
+     * @return returns list of users loaded from the Users.csv.
      */
     public List<User> getUsers() {
         return users;
