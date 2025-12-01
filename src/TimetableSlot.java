@@ -164,6 +164,22 @@ public class TimetableSlot {
         this.timetableID = timetableID;
     }
 
+    public String getRoomID() {
+        return roomID;
+    }
+
+    public void setRoom(String roomID) {
+        this.roomID = roomID;
+    }
+
+    public String getLecturerName() {
+        return lecturerName;
+    }
+
+    public void setLecturerName(String lecturerName) {
+        this.lecturerName = lecturerName;
+    }
+
     /**
      * Determines whether this slot clashes with another slot,
      * a clash happens when both slots occur on the same day and their times overlap.
