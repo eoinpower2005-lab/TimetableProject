@@ -89,7 +89,7 @@ public abstract class User {
     public void setEmail(String email) {
         this.email = email;
     }
-//
+
     /**
      * getter method to return the users email
      * @return returns users email
@@ -101,24 +101,24 @@ public abstract class User {
     /**
      * setter method to set a users role
      * @param role users role
-     */ //
+     */
     public void setRole(String role) {
         this.role = role;
     }
-//
-    /** //
-     * getter method to return the users role //
-     * @return returns users role //
-     */ //
+
+    /**
+     * getter method to return the users role
+     * @return returns users role
+     */
     public String getRole() {
         return role;
     }
-//
+
     public void setTimetableID(String timetableID) {
         this.timetableID = timetableID;
     }
-//
+
     public String getTimetableID() {
         return timetableID;
     }
-}
+} //
