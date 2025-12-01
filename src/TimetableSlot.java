@@ -131,47 +131,7 @@ public class TimetableSlot {
         this.classType = classType;
     }
 
-    /**
-     *
-     * @return the lecturers name as a String that is assigned to this timetable slot e.g. "Alan T Ryan"
-     */
 
-    public String getLecturerName() {
-        return lecturerName;
-    }
-
-    /**
-     *
-     * @param lecturerName the new lecturer name for this timetable slot.
-     */
-
-    public void setLecturerName(String lecturerName) {
-        this.lecturerName = lecturerName;
-    }
-
-    /**
-     *
-     * @return the room ID as a String e.g. "CSG001", this is the room identifier where this timetable slot occurs.
-     */
-
-
-    public String getRoomID() {
-        return roomID;
-    }
-
-    /**
-     *
-     * @param roomID is the new room ID which sets the room identifier for this timetable slot
-     */
-
-    public void setRoom(String roomID) {
-        this.roomID = roomID;
-    }
-
-    /**
-     *
-     * @return the academic semester when this timetable slot occurs (1 = autumn, 2 = spring)
-     */
 
     public int getSemester() {
         return semester;
@@ -210,7 +170,7 @@ public class TimetableSlot {
      * This method compares strings directly, it is used to prevent scheduling two classes in the same room or with the same
      * time slot as another class
      * @param other checks the other TimetableSlots to check for clashes
-     * @return true if the slots clash, it prevents t is used
+     * @return true if the slots clash
      * to prevent scheduling two classes in the same room or with the same lecturer
      * at the same time, otherwise it's false.
      */

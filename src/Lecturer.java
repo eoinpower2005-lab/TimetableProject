@@ -1,5 +1,5 @@
 /**
- * Lecturer represents the unique attributes and behaviours of a lecturer object
+ *  The Lecturer represents the unique attributes and behaviours of a lecturer object
  * Lecturer is a subclass of the User object
  */
 public class Lecturer extends User {

@@ -10,7 +10,7 @@ import java.util.List;
  * which module each student group should be scheduled for based on their programme, year of study and the semester
  * that was selected
  * Stores programme information (programmeID e.g. "LM121", programmeYear e.g. year 1,2,3,4, programmeSemester e.g. 1or2)
- * moduleID e.g. "CS4013").
+ * moduleID e.g. "CS4013".
  */
 public class Programme {
     private String programmeID;
@@ -27,8 +27,7 @@ public class Programme {
      * @param programmeSemester the semester number e.g. 1=Autumn 2=Spring
      * @param moduleID the module ID that is assigned to this programme/year/semester
      */
-
-    public Programme(String programmeID, int programmeYear, int programmeSemester, String moduleID) {
+    public Programme( String programmeID, int programmeYear, int programmeSemester, String moduleID ) {
         this.programmeID = programmeID;
         this.programmeYear = programmeYear;
         this.programmeSemester = programmeSemester;
@@ -39,16 +38,16 @@ public class Programme {
      * Sets the ID for this programme
      * @param programmeId the new programme ID
      */
-    public void setProgrammeId(String programmeId) {
+    public void setProgrammeId (String programmeId) {
         this.programmeID = programmeId;
     }
 
     /**
      *
-     * @returnthe programme ID as a String e.g."LM121"
+     * @return the programme ID as a String e.g."LM121"
      */
 
-    public String getProgrammeID() {
+    public String getProgrammeID () {
         return programmeID;
     }
 
@@ -57,7 +56,7 @@ public class Programme {
      * @param programmeYear the new programme year
      */
 
-    public void setProgrammeYear(int programmeYear) {
+    public void setProgrammeYear(int programmeYear)  {
         this.programmeYear = programmeYear;
     }
 
@@ -66,7 +65,7 @@ public class Programme {
      * @return the year of study for this programme structure as a positive integer
      */
 
-    public int getProgrammeYear() {
+    public int getProgrammeYear()  {
         return programmeYear;
     }
 
@@ -75,8 +74,9 @@ public class Programme {
      * @param programmeSemester the new programme semester e.g. 1=Autumn 2=Spring
      */
 
-    public void setProgrammeSemester(int programmeSemester) {
-        this.programmeSemester = programmeSemester;
+    public void setProgrammeSemester(int programmeSemester)  {
+         this.programmeSemester = programmeSemester;
+
     }
 
     /**
@@ -84,8 +84,9 @@ public class Programme {
      * @return the semester when this module is thought in the programme
      */
 
-    public int getProgrammeSemester() {
+    public int getProgrammeSemester()  {
         return programmeSemester;
+
     }
 
     /**
@@ -93,8 +94,9 @@ public class Programme {
      * @param moduleID the new module ID which is needed to see if this specific module is part of the programme
      */
 
-    public void setModuleID(String moduleID) {
-        this.moduleID = moduleID;
+    public void setModuleID(String moduleID)  {
+         this.moduleID = moduleID;
+
     }
 
     /**
@@ -102,7 +104,10 @@ public class Programme {
      * @return the module ID as a String e.g. "CS4013", this identifies the module for this programme structure
      */
 
-    public String getModuleID() {
-        return moduleID;
+    public String getModuleID()  {
+         return moduleID;
+
     }
 }
+
+

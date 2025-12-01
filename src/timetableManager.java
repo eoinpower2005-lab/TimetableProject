@@ -286,8 +286,7 @@ public class timetableManager {
      * @param moduleContactHoursList is the list of all the loaded contact-hour records
      * @return the ModuleContactHours object for this module
      */
-
-    private ModuleContactHours getContactHours(String moduleCode, List<ModuleContactHours> moduleContactHoursList) {
+    private ModuleContactHours getContactHours( String moduleCode, List<ModuleContactHours> moduleContactHoursList) {
         for (ModuleContactHours m : moduleContactHoursList) {
             if (m.getModuleCode().equals(moduleCode)) {
                 return m;
@@ -311,20 +310,20 @@ public class timetableManager {
      */
 
     private StaffAssignment getStaffAssignment(String moduleCode, String classType, List<StaffAssignment> staffAssignmentList) {
+        System.out.println("Looking for staff assignment: module = " + moduleCode + ", classType = " + classType);
         for (StaffAssignment s : staffAssignmentList) {
+            System.out.println("    checking against: " + s.getModuleCode() + ", " + s.getClassType());
             if (s.getModuleCode().equalsIgnoreCase(moduleCode) && s.getClassType().equalsIgnoreCase(classType)) {
+                System.out.println("    -> Match");
                 return s;
             }
         }
+        System.out.println("    -> No Match found, returns null");
         return null;
     }
 
-    private Rooms getRooms(List<Rooms> roomsList) {
-        if (roomsList.isEmpty()) {
-            return null;
-        }
-        return roomsList.get(0);
-    }
+
+
 
     /**
      * this method schedules timetable slots for a module for the required module contact hours.
@@ -424,8 +423,23 @@ public class timetableManager {
         }
     }
 
+    /**
+     * This method generates all timetables for a given semester
+     * It loads programme structures, module contact hours, rooms staff assignments,
+     * student module enrollments and student groups from csv files.
+     * It loops through all the student groups  and will match the user to modules based on programme, year and semster.
+     * It retrieves the required lecture, lab and tutorial hours for each module.
+     * The method schedules lectures first and if a lecture slot already exists for the module, it duplicates that slot
+     *      for other students in the same year.
+     * It schedules unique labs and tutorials for all the different student groups.
+     * It uses helper methods to check contact hours, staff assignments and available rooms.
+     * Finds any clashes in scheduling and skips any modules with issues
+     * prints debug messages throughout the programme
+     * prints the total number of generated slots for each semester.
+     * @param semester the semseter number (e.g. 1 or 2) to match the semester of the college year.
+     */
 
-    public void generateTimetable(int semester) {
+    public void generateTimetable(int semester)  {
         List<Programme> programmeList = loadProgrammeStructureCSVData("src/resources/Programme_structure.csv");
         List<ModuleContactHours> moduleContactHoursList = loadModuleContactHoursCSVData("src/resources/Module_contact_hours.csv");
         List<Rooms> roomsList = loadRoomsCSVData("src/resources/Rooms.csv");
@@ -436,42 +450,52 @@ public class timetableManager {
         String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
         String[] timeSlots = {"09:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00", "16:00-17:00", "17:00-18:00"};
 
+        //timetableSlots.clear();
+
+        System.out.println("DEBUG: Generating timetable for semester " + semester);
+        System.out.println("DEBUG: Total student groups: " + studentGroupList.size());
+        System.out.println("DEBUG: Total programmes: " + programmeList.size());
+
         for (StudentGroup g : studentGroupList) {
             String timetableID = g.getGroupID();
+            System.out.println("DEBUG: Processing student group: " + timetableID);
             for (Programme p : programmeList) {
                 if (p.getProgrammeSemester() != semester) {
                     continue;
                 }
 
-                if (!p.getProgrammeID().equals(g.getProgrammeID()) || p.getProgrammeYear() != g.getProgrammeYear()) {
+                if (!p.getProgrammeID().equals(g.getProgrammeID()) || p.getProgrammeYear() != g.getProgrammeYear())  {
                     continue;
                 }
 
                 String moduleID = p.getModuleID();
+                System.out.println("DEBUG: Found matching module: " + moduleID + " for semester " + semester);
 
                 ModuleContactHours m = getContactHours(moduleID, moduleContactHoursList);
-                if (m == null) {
+                if (m == null)  {
+                    System.out.println("DEBUG: No contact hours found for " + moduleID);
                     continue;
                 }
 
-                try {
+                try  {
                     int requiredLectureHours = m.getLectureHours();
 
-                    if (requiredLectureHours > 0) {
+                    if (requiredLectureHours > 0)  {
                         String firstTimetableID = null;
-                        for (TimetableSlot slot : timetableSlots) {
-                            if (slot.getSemester() == semester && slot.getModule().equals(moduleID) && slot.getClassType() == ClassType.LECTURE) {
+                        for (TimetableSlot slot : timetableSlots)  {
+                            if (slot.getSemester() == semester && slot.getModule().equals(moduleID) && slot.getClassType() == ClassType.LECTURE)  {
                                 firstTimetableID = slot.getTimetableID();
                                 break;
                             }
                         }
 
-                        if (firstTimetableID == null) {
+                        if (firstTimetableID == null)  {
                             scheduleClass("lecture", moduleID, m.getLectureHours(), timetableID, semester, days, timeSlots, staffAssignmentList, roomsList, g.getGroupSize());
-                        } else {
-                            for (int i=0; i<timetableSlots.size(); i++) {
+                        }
+                        else  {
+                            for (int i=0; i<timetableSlots.size(); i++)  {
                                 TimetableSlot slot = timetableSlots.get(i);
-                                if (slot.getSemester() == semester && slot.getModule().equals(moduleID) && slot.getClassType() == ClassType.LECTURE && slot.getTimetableID().equals(firstTimetableID)) {
+                                if (slot.getSemester() == semester && slot.getModule().equals(moduleID) && slot.getClassType() == ClassType.LECTURE && slot.getTimetableID().equals(firstTimetableID))  {
                                     TimetableSlot newSlot = new TimetableSlot(slot.getDay(), slot.getStartTime(), slot.getEndTime(), slot.getModule(), slot.getClassType(), slot.getLecturerName(), slot.getRoomID(), slot.getSemester(), timetableID);
                                     timetableSlots.add(newSlot);
                                 }
@@ -479,18 +503,19 @@ public class timetableManager {
                         }
                     }
 
-                    if (m.getLabHours() > 0) {
+                    if (m.getLabHours() > 0)  {
                         scheduleClass("lab", moduleID, m.getLabHours(), timetableID, semester, days, timeSlots, staffAssignmentList, roomsList, g.getGroupSize());
                     }
 
-                    if (m.getTutorialHours() > 0) {
+                    if (m.getTutorialHours() > 0)  {
                         scheduleClass("tutorial", moduleID, m.getTutorialHours(), timetableID, semester, days, timeSlots, staffAssignmentList, roomsList, g.getGroupSize());
                     }
-                } catch (Exception e) {
-                    System.out.println("Error: module skipped " + moduleID + " due to a clash " + e.getMessage());
+                } catch (Exception e)  {
+                    System.out.println("Error: moduled skipped " + moduleID + " due to a clash " + e.getMessage());
                 }
             }
         }
+        System.out.println("DEBUG: Generated " + timetableSlots.size() + " slots for semester " + semester);
     }
 
     /**
@@ -543,10 +568,22 @@ public class timetableManager {
             }
         }
         return "TBA";
-    } //
+    }
 
-    public void writeGeneratedTimetableToCSV(String filename) {
-        try (PrintWriter pw = new PrintWriter(new FileWriter(filename))) {
+    /**
+     * this method puts all generated timetable slots into a CSV file.
+     * It will open a PrintWriter using the provided filename.
+     * writes the CSV header which puts in day, time, module, lecturer and room details.
+     * loops through the list of timetableSlots and formats each slot as a CSV row.
+     * prints each row with the correct values such as day, start time, class type, and semester.
+     * It automatically closes the writer after finishing.
+     * catches any IOException and prints an error message if the file cannot be created or written to.
+     *
+     * @param filename the name and path of the CSV file to write the timetable to.
+     */
+
+    public void writeGeneratedTimetableToCSV(String filename)  {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(filename)))  {
             pw.println("day, start_time, end_time, module_code, class_type, assigned_lecturer, room_id, semester, timetable_id");
 
             for (TimetableSlot timetableSlot : timetableSlots) {
@@ -560,51 +597,26 @@ public class timetableManager {
         }
     }
 
-    public void addSlot(TimetableSlot newSlot) {
-        for (TimetableSlot existing : timetableSlots) {
-            if (existing.getRoomID().equals(newSlot.getRoomID())
-                    && existing.clashesWith(newSlot)) {
-                throw new IllegalArgumentException("Room clash detected with existing slot.");
-            }
-            if (existing.getLecturerName() == (newSlot.getLecturerName())
-                    && existing.clashesWith(newSlot)) {
-                throw new IllegalArgumentException("Lecturer clash detected with existing slot.");
-            }
-        }
-        timetableSlots.add(newSlot);
-    }
-
-    public timetableManager(List<TimetableSlot> timetableSlots) {
-        this.timetableSlots = timetableSlots;
-    }
-
     public List<TimetableSlot> getTimetableSlots() {
         return timetableSlots;
     }
 
-    /**
-     *
-     * @param student     the Student whose timetable is being requested
-     * @param semesterInput  the semester number to filter by (eg 1 or 2)
-     * @return a list of TimetableSlot objects representing the student's timetable
-     */
     public List<TimetableSlot> getStudentSlots(Student student, int semesterInput) {
         List<TimetableSlot> studentSlots = new ArrayList<>();
         String timetableID = student.getTimetableID();
 
+        System.out.println("DEBUG: Looking for student timetableID " + timetableID + " in semester " + semesterInput);
+        System.out.println("DEBUG: Total available slots: " + timetableSlots.size());
         for (TimetableSlot slot : timetableSlots) {
+            System.out.println("DEBUG: Slot - ID: " + slot.getTimetableID() + ", Semester: " + slot.getSemester() + ", module: " + slot.getModule());
             if (slot.getSemester() == semesterInput && slot.getTimetableID().equals(timetableID)) {
                 studentSlots.add(slot);
             }
         }
+        System.out.println("DEBUG: Found " + studentSlots.size() + " slots for student");
         return studentSlots;
     }
 
-    /**
-     * @param lecturer     the Lecturer whose timetable is being requested
-     * @param semesterInput  the semester number to filter by
-     * @return a list of TimetableSlot objects representing the lecturer's timetable
-     */
     public List<TimetableSlot> getLecturerSlots(Lecturer lecturer, int semesterInput) {
         List<TimetableSlot> lecturerSlots = new ArrayList<>();
         String lecturerName = lecturer.getName();
@@ -616,11 +628,6 @@ public class timetableManager {
         return lecturerSlots;
     }
 
-    /**
-     * @param module   the module code (eg "CS4141")
-     * @param semesterInput  the semester number to filter by
-     * @return a list of TimetableSlot objects for the requested module and semester
-     */
     public List<TimetableSlot> getModuleSlots(String module, int semesterInput) {
         List<TimetableSlot> moduleSlots = new ArrayList<>();
         for (TimetableSlot slot : timetableSlots) {
@@ -631,11 +638,6 @@ public class timetableManager {
         return moduleSlots;
     }
 
-    /**
-     * @param programmeCode the programme ID (eg LM121)
-     * @param semesterInput    the semester number to filter by
-     * @return a list of TimetableSlot objects for all groups within the programmes
-     */
     public List<TimetableSlot> getProgrammeSlots(String programmeCode, int semesterInput) {
         List<TimetableSlot> programmeSlots = new ArrayList<>();
         List<StudentGroup> studentGroupsList = loadStudentGroupCSVData("src/resources/Student_Groups.csv");
@@ -666,11 +668,6 @@ public class timetableManager {
         return programmeSlots;
     }
 
-    /**
-     * @param roomCode   the room identifier (eg CSG001)
-     * @param semesterInput  the semester number to filter by
-     * @return a list of TimetableSlot objects representing that room's usage
-     */
     public List<TimetableSlot> getRoomSlots(String roomCode, int semesterInput) {
         List<TimetableSlot> roomSlots = new ArrayList<>();
         for (TimetableSlot slot : timetableSlots) {
@@ -679,35 +676,5 @@ public class timetableManager {
             }
         }
         return roomSlots;
-    }
-
-    /**
-     * @param studentID    the ID of the student
-     * @param semesterInput  the semester number to filter by
-     * @return a list of TimetableSlot objects intended to represent the student's timetable
-     */
-    public List<TimetableSlot> getStudentIDSlots(int studentID, int semesterInput) {
-        List<TimetableSlot> studentIDSlots = new ArrayList<>();
-        for (TimetableSlot slot : timetableSlots) {
-            if (slot.getSemester() == semesterInput) {
-                studentIDSlots.add(slot);
-            }
-        }
-        return studentIDSlots;
-    }
-
-    /**
-     * @param lecturerID     the user ID of the lecturer
-     * @param semesterInput  the semester number to filter by
-     * @return a list of TimetableSlot objects intended to represent the lecturer's timetable
-     */
-    public List<TimetableSlot> getLecturerIDSlots(int lecturerID, int semesterInput) {
-        List<TimetableSlot> lecturerIDSlots = new ArrayList<>();
-        for (TimetableSlot slot : timetableSlots) {
-            if (slot.getSemester() == semesterInput) {
-                lecturerIDSlots.add(slot);
-            }
-        }
-        return lecturerIDSlots;
     }
 }
