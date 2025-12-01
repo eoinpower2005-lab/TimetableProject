@@ -318,7 +318,6 @@ public class timetableManager {
         }
         return null;
     }
-
     private Rooms getRooms(List<Rooms> roomsList) {
         if (roomsList.isEmpty()) {
             return null;
