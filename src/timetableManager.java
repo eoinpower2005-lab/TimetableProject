@@ -634,7 +634,7 @@ public class timetableManager {
     /**
      * @param programmeCode the programme ID (eg LM121)
      * @param semesterInput    the semester number to filter by
-     * @return a list of TimetableSlot objects for all groups within the programme
+     * @return a list of TimetableSlot objects for all groups within the programmes
      */
     public List<TimetableSlot> getProgrammeSlots(String programmeCode, int semesterInput) {
         List<TimetableSlot> programmeSlots = new ArrayList<>();
