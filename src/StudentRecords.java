@@ -33,7 +33,8 @@ public class StudentRecords {
         this.NumStudents = numStudents;
     }
     /**
-     * @param ModuleCode sets a new module code
+     * sets a new module code
+     * @param ModuleCode the new module code
      */
     public void setModuleCode(String ModuleCode) {
         this.ModuleCode = ModuleCode;
