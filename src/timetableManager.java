@@ -310,7 +310,7 @@ public class timetableManager {
      * @return the matching StaffAssignment object or null if there's no matches
      */
 
-    private StaffAssignment getStaffAssignment(String moduleCode, String classType, List<StaffAssignment> staffAssignmentList) {
+    private  StaffAssignment getStaffAssignment(String moduleCode, String classType, List<StaffAssignment> staffAssignmentList) {
         for (StaffAssignment s : staffAssignmentList) {
             if (s.getModuleCode().equalsIgnoreCase(moduleCode) && s.getClassType().equalsIgnoreCase(classType)) {
                 return s;
