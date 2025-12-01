@@ -131,10 +131,51 @@ public class TimetableSlot {
         this.classType = classType;
     }
 
+    /**
+     *
+     * @return the lecturers name as a String that is assigned to this timetable slot e.g. "Alan T Ryan"
+     */
 
+    public String getLecturerName() {
+         return lecturerName;
+    }
+
+    /**
+     *
+     * @param lecturerName the new lecturer name for this timetable slot.
+     */
+
+    public void setLecturerName(String lecturerName) {
+        this.lecturerName = lecturerName;
+
+    }
+
+    /**
+     *
+     * @return the room ID as a String e.g. "CSG001", this is the room identifier where this timetable slot occurs.
+     */
+
+
+    public String getRoomID() {
+         return roomID;
+    }
+
+    /**
+     *
+     * @param roomID is the new room ID which sets the room identifier for this timetable slot
+     */
+
+    public void setRoom(String roomID) {
+         this.roomID = roomID;
+    }
+
+    /**
+     *
+     * @return the academic semester when this timetable slot occurs (1 = autumn, 2 = spring)
+     */
 
     public int getSemester() {
-        return semester;
+         return semester;
     }
 
     /**
@@ -143,7 +184,7 @@ public class TimetableSlot {
      */
 
     public void setSemester(int semester) {
-        this.semester = semester;
+         this.semester = semester;
     }
 
     /**
@@ -152,7 +193,7 @@ public class TimetableSlot {
      */
 
     public String getTimetableID() {
-        return timetableID;
+         return timetableID;
     }
 
     /**
@@ -161,7 +202,7 @@ public class TimetableSlot {
      */
 
     public void setTimetableID(String timetableID) {
-        this.timetableID = timetableID;
+         this.timetableID = timetableID;
     }
 
     public String getRoomID() {

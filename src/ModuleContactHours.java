@@ -37,7 +37,7 @@ public class ModuleContactHours {
      */
 
     public String getModuleCode() {
-        return moduleCode;
+         return moduleCode;
     }
 
     /**
@@ -46,7 +46,7 @@ public class ModuleContactHours {
      */
 
     public void setModuleCode(String moduleCode) {
-        this.moduleCode = moduleCode;
+         this.moduleCode = moduleCode;
     }
 
     /**
@@ -56,7 +56,7 @@ public class ModuleContactHours {
      */
 
     public int getLectureHours() {
-        return lectureHours;
+         return lectureHours;
     }
 
     /**
@@ -65,7 +65,7 @@ public class ModuleContactHours {
      */
 
     public void setLectureHours(int lectureHours) {
-        this.lectureHours = lectureHours;
+         this.lectureHours = lectureHours;
     }
 
     /**
@@ -84,7 +84,7 @@ public class ModuleContactHours {
      */
 
     public void setTutorialHours(int tutorialHours) {
-        this.tutorialHours = tutorialHours;
+         this.tutorialHours = tutorialHours;
     }
 
     /**
@@ -93,7 +93,7 @@ public class ModuleContactHours {
      */
 
     public int getLabHours() {
-        return labHours;
+         return labHours;
     }
 
     /**
@@ -102,7 +102,8 @@ public class ModuleContactHours {
      */
 
     public void setLabHours(int labHours) {
-        this.labHours = labHours;
+         this.labHours = labHours;
     }
 }
+
 
