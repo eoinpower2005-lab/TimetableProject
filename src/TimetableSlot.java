@@ -210,7 +210,7 @@ public class TimetableSlot {
      * This method compares strings directly, it is used to prevent scheduling two classes in the same room or with the same
      * time slot as another class
      * @param other checks the other TimetableSlots to check for clashes
-     * @return true if the slots clash, it prevents t is used
+     * @return true if the slots clash
      * to prevent scheduling two classes in the same room or with the same lecturer
      * at the same time, otherwise it's false.
      */
