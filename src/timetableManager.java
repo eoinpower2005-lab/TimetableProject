@@ -287,14 +287,7 @@ public class timetableManager {
      * @return the ModuleContactHours object for this module
      */
 
-    private ModuleContactHours getContactHours(String moduleCode, List<ModuleContactHours> moduleContactHoursList) {
-        for (ModuleContactHours m : moduleContactHoursList) {
-            if (m.getModuleCode().equals(moduleCode)) {
-                return m;
-            }
-        }
-        return null;
-    }
+
 
     /**
      * This method gets the staff assignment for a given module and class type.
