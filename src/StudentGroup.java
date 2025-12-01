@@ -13,6 +13,13 @@ public class StudentGroup {
     private int programmeYear;
     private int groupSize;
 
+    /**
+     *
+     * @param programmeID The id of the programme
+     * @param programmeYear The year of the programme
+     * @param groupID The group id
+     * @param groupSize
+     */
     public StudentGroup(String programmeID, int programmeYear, String groupID, int groupSize) {
         this.groupID = groupID;
         this.programmeID = programmeID;
