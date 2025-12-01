@@ -311,15 +311,11 @@ public class timetableManager {
      */
 
     private StaffAssignment getStaffAssignment(String moduleCode, String classType, List<StaffAssignment> staffAssignmentList) {
-        System.out.println("Looking for staff assignment: module = " + moduleCode + ", classType = " + classType);
         for (StaffAssignment s : staffAssignmentList) {
-            System.out.println("    checking against: " + s.getModuleCode() + ", " + s.getClassType());
             if (s.getModuleCode().equalsIgnoreCase(moduleCode) && s.getClassType().equalsIgnoreCase(classType)) {
-                System.out.println("    -> Match");
                 return s;
             }
         }
-        System.out.println("    -> No Match found, returns null");
         return null;
     }
 
@@ -440,15 +436,8 @@ public class timetableManager {
         String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
         String[] timeSlots = {"09:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00", "16:00-17:00", "17:00-18:00"};
 
-        //timetableSlots.clear();
-
-        System.out.println("DEBUG: Generating timetable for semester " + semester);
-        System.out.println("DEBUG: Total student groups: " + studentGroupList.size());
-        System.out.println("DEBUG: Total programmes: " + programmeList.size());
-
         for (StudentGroup g : studentGroupList) {
             String timetableID = g.getGroupID();
-            System.out.println("DEBUG: Processing student group: " + timetableID);
             for (Programme p : programmeList) {
                 if (p.getProgrammeSemester() != semester) {
                     continue;
@@ -459,11 +448,9 @@ public class timetableManager {
                 }
 
                 String moduleID = p.getModuleID();
-                System.out.println("DEBUG: Found matching module: " + moduleID + " for semester " + semester);
 
                 ModuleContactHours m = getContactHours(moduleID, moduleContactHoursList);
                 if (m == null) {
-                    System.out.println("DEBUG: No contact hours found for " + moduleID);
                     continue;
                 }
 
@@ -500,11 +487,10 @@ public class timetableManager {
                         scheduleClass("tutorial", moduleID, m.getTutorialHours(), timetableID, semester, days, timeSlots, staffAssignmentList, roomsList, g.getGroupSize());
                     }
                 } catch (Exception e) {
-                    System.out.println("Error: moduled skipped " + moduleID + " due to a clash " + e.getMessage());
+                    System.out.println("Error: module skipped " + moduleID + " due to a clash " + e.getMessage());
                 }
             }
         }
-        System.out.println("DEBUG: Generated " + timetableSlots.size() + " slots for semester " + semester);
     }
 
     private boolean isSlotUsed(String day, String startTime, String endTime, String timetableID, String roomID, int semester, String lecturerName) {
@@ -551,7 +537,6 @@ public class timetableManager {
     }
 
     public void addSlot(TimetableSlot newSlot) {
-        //Check for classes in same room
         for (TimetableSlot existing : timetableSlots) {
             if (existing.getRoomID().equals(newSlot.getRoomID())
                     && existing.clashesWith(newSlot)) {
@@ -577,15 +562,11 @@ public class timetableManager {
         List<TimetableSlot> studentSlots = new ArrayList<>();
         String timetableID = student.getTimetableID();
 
-        System.out.println("DEBUG: Looking for student timetableID " + timetableID + " in semester " + semesterInput);
-        System.out.println("DEBUG: Total available slots: " + timetableSlots.size());
         for (TimetableSlot slot : timetableSlots) {
-            System.out.println("DEBUG: Slot - ID: " + slot.getTimetableID() + ", Semester: " + slot.getSemester() + ", module: " + slot.getModule());
             if (slot.getSemester() == semesterInput && slot.getTimetableID().equals(timetableID)) {
                 studentSlots.add(slot);
             }
         }
-        System.out.println("DEBUG: Found " + studentSlots.size() + " slots for student");
         return studentSlots;
     }
 
