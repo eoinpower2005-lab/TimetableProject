@@ -13,11 +13,11 @@ public class Student extends User {
      * @param name   the name of each user
      * @param email the unique email of each user
      * @param role    the role of a student
-     */ //
+     */
     public Student(int userid, String password, String name, String email, String role, String timetableID) {
         super(userid, password, name, email, role, timetableID);
-    } //
- //
+    }
+
     /**
      * overrides the abstract method in the superclass User object
      * student cannot modify a timetable only view it, hence false
@@ -27,5 +27,5 @@ public class Student extends User {
     @Override
     public boolean canModifyTimetable() {
         return false;
-    } //
-} //
+    }
+}
