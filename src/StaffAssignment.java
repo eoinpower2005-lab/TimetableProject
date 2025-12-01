@@ -28,7 +28,7 @@ public class StaffAssignment {
      */
 
     public String getModuleCode() {
-        return moduleCode;
+         return moduleCode;
     }
 
     /**
@@ -36,7 +36,7 @@ public class StaffAssignment {
      * sets the module code
      */
     public void setModuleCode(String moduleCode) {
-        this.moduleCode = moduleCode;
+         this.moduleCode = moduleCode;
     }
 
     /**
@@ -45,7 +45,7 @@ public class StaffAssignment {
      */
 
     public String getClassType() {
-        return classType;
+         return classType;
     }
 
     /**
@@ -63,7 +63,7 @@ public class StaffAssignment {
      */
 
     public int getMaxCapacity() {
-        return maxCapacity;
+         return maxCapacity;
     }
 
     /**
@@ -73,7 +73,7 @@ public class StaffAssignment {
 
 
     public void setMaxCapacity(int maxCapacity) {
-        this.maxCapacity = maxCapacity;
+         this.maxCapacity = maxCapacity;
     }
 
     /**
@@ -82,7 +82,7 @@ public class StaffAssignment {
      */
 
     public String getAssignedTeacher() {
-        return assignedTeacher;
+         return assignedTeacher;
     }
 
     /**
