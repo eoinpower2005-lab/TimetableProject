@@ -19,7 +19,7 @@ public class StudentRecords {
      *
      * @return the number of students
      */
-    public int getNumStudents() {
+    public int getNumStudents() { //
         return NumStudents;
     }
     /**
