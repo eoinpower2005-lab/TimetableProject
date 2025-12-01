@@ -509,14 +509,14 @@ public class timetableManager {
 
     /**
      *
-     * @param day
-     * @param startTime
-     * @param endTime
-     * @param timetableID
-     * @param roomID
-     * @param semester
-     * @param lecturerName
-     * @return
+     * @param day          the day of the week for the time slot
+     * @param startTime   the starting time of the slot (in HH:mm format)
+     * @param endTime    the ending time of the slot (in HH:mm format)
+     * @param timetableID   the ID of the timetable entry being verified (to avoid self-clash)
+     * @param roomID       the ID of the room to check for availability
+     * @param semester    the semester in which the class is scheduled
+     * @param lecturerName the name of the lecturer assigned to the class
+     * @return true if slot is taken , false if it is available
      */
     private boolean isSlotUsed(String day, String startTime, String endTime, String timetableID, String roomID, int semester, String lecturerName) {
         return clashOccurs(day, startTime, endTime, roomID, semester, lecturerName, timetableID);
@@ -524,12 +524,12 @@ public class timetableManager {
 
     /**
      *
-     * @param day           the day of the week on which the class is scheduled
-     * @param classType     the type of class (e.g., "lab" or "lecture")
-     * @param groupSize     the number of students attending the class
-     * @param roomsList     the list of available rooms
+     * @param day         the day of the week on which the class is scheduled
+     * @param classType    the type of class (e.g., "lab" or "lecture")
+     * @param groupSize   the number of students attending the class
+     * @param roomsList    the list of available rooms
      * @param startTime     the class start time
-     * @param endTime       the class end time
+     * @param endTime     the class end time
      * @param semester      the semester in which the class occurs
      * @param lecturerName  the name of the lecturer assigned to the class
      * @param timetableID   the ID of the timetable entry being evaluated (to avoid self-clash)
