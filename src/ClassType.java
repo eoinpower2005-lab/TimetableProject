@@ -7,6 +7,6 @@
  * This enum is used when creating objects and when scheduling classes in timetableManager to ensure that the
  * correct class type is assigned.
  */
-public enum ClassType {
+public enum ClassType  {
     LECTURE, TUT, LAB
 }
