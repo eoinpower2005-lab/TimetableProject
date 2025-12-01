@@ -597,6 +597,12 @@ public class timetableManager {
         return timetableSlots;
     }
 
+    /**
+     *
+     * @param student     the Student whose timetable is being requested
+     * @param semesterInput  the semester number to filter by (eg 1 or 2)
+     * @return a list of TimetableSlot objects representing the student's timetable
+     */
     public List<TimetableSlot> getStudentSlots(Student student, int semesterInput) {
         List<TimetableSlot> studentSlots = new ArrayList<>();
         String timetableID = student.getTimetableID();
@@ -613,6 +619,11 @@ public class timetableManager {
         return studentSlots;
     }
 
+    /**
+     * @param lecturer     the Lecturer whose timetable is being requested
+     * @param semesterInput  the semester number to filter by
+     * @return a list of TimetableSlot objects representing the lecturer's timetable
+     */
     public List<TimetableSlot> getLecturerSlots(Lecturer lecturer, int semesterInput) {
         List<TimetableSlot> lecturerSlots = new ArrayList<>();
         String lecturerName = lecturer.getName();
@@ -624,6 +635,11 @@ public class timetableManager {
         return lecturerSlots;
     }
 
+    /**
+     * @param module   the module code (eg "CS4141")
+     * @param semesterInput  the semester number to filter by
+     * @return a list of TimetableSlot objects for the requested module and semester
+     */
     public List<TimetableSlot> getModuleSlots(String module, int semesterInput) {
         List<TimetableSlot> moduleSlots = new ArrayList<>();
         for (TimetableSlot slot : timetableSlots) {
@@ -634,6 +650,11 @@ public class timetableManager {
         return moduleSlots;
     }
 
+    /**
+     * @param programmeCode the programme ID (eg LM121)
+     * @param semesterInput    the semester number to filter by
+     * @return a list of TimetableSlot objects for all groups within the programme
+     */
     public List<TimetableSlot> getProgrammeSlots(String programmeCode, int semesterInput) {
         List<TimetableSlot> programmeSlots = new ArrayList<>();
         List<StudentGroup> studentGroupsList = loadStudentGroupCSVData("src/resources/Student_Groups.csv");
@@ -664,6 +685,11 @@ public class timetableManager {
         return programmeSlots;
     }
 
+    /**
+     * @param roomCode   the room identifier (eg CSG001)
+     * @param semesterInput  the semester number to filter by
+     * @return a list of TimetableSlot objects representing that room's usage
+     */
     public List<TimetableSlot> getRoomSlots(String roomCode, int semesterInput) {
         List<TimetableSlot> roomSlots = new ArrayList<>();
         for (TimetableSlot slot : timetableSlots) {
@@ -674,6 +700,11 @@ public class timetableManager {
         return roomSlots;
     }
 
+    /**
+     * @param studentID    the ID of the student
+     * @param semesterInput  the semester number to filter by
+     * @return a list of TimetableSlot objects intended to represent the student's timetable
+     */
     public List<TimetableSlot> getStudentIDSlots(int studentID, int semesterInput) {
         List<TimetableSlot> studentIDSlots = new ArrayList<>();
         for (TimetableSlot slot : timetableSlots) {
@@ -684,6 +715,11 @@ public class timetableManager {
         return studentIDSlots;
     }
 
+    /**
+     * @param lecturerID     the user ID of the lecturer
+     * @param semesterInput  the semester number to filter by
+     * @return a list of TimetableSlot objects intended to represent the lecturer's timetable
+     */
     public List<TimetableSlot> getLecturerIDSlots(int lecturerID, int semesterInput) {
         List<TimetableSlot> lecturerIDSlots = new ArrayList<>();
         for (TimetableSlot slot : timetableSlots) {
