@@ -1,5 +1,5 @@
 /**
- * represents a user in the timetabling system
+ * This represents a user in the timetabling system
  * stores commonly shared attributes userid, password, name, email, role
  */
 public abstract class User {
