@@ -26,27 +26,60 @@ public class StudentGroup {
         this.programmeYear = programmeYear;
         this.groupSize = groupSize;
     }
+
+    /**
+     * Returns the group id
+     * @return the group id
+     */
     public String getGroupID() {
         return groupID;
     }
+
+    /**
+     * @param groupID Sets a new group id
+     */
     public void setGroupID(String groupID) {
         this.groupID = this.groupID;
     }
+
+    /**
+     * @return the programmes id
+     */
     public String getProgrammeID() {
         return programmeID;
     }
+
+    /**
+     * @param programmeID Sets the new programmes id
+     */
     public void setProgrammeID(String programmeID) {
         this.programmeID = programmeID;
     }
+
+    /**
+     * @return the programmes year
+     */
     public int getProgrammeYear() {
         return programmeYear;
     }
+
+    /**
+     * @param programmeYear sets the new programmes year
+     */
     public void setProgrammeYear(int programmeYear) {
         this.programmeYear = programmeYear;
     }
+
+    /**
+     * @return the group size
+     */
     public int getGroupSize() {
         return groupSize;
     }
+
+    /**
+     * @param groupSize sets a new group size
+     */
     public void setGroupSize(int groupSize) {
         this.groupSize = groupSize;
     }
