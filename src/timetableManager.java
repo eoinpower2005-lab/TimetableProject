@@ -449,7 +449,6 @@ public class timetableManager {
 
         for (StudentGroup g : studentGroupList) {
             String timetableID = g.getGroupID();
-            System.out.println("DEBUG: Processing student group: " + timetableID);
             for (Programme p : programmeList) {
                 if (p.getProgrammeSemester() != semester) {
                     continue;
@@ -460,11 +459,9 @@ public class timetableManager {
                 }
 
                 String moduleID = p.getModuleID();
-                System.out.println("DEBUG: Found matching module: " + moduleID + " for semester " + semester);
 
                 ModuleContactHours m = getContactHours(moduleID, moduleContactHoursList);
                 if (m == null)  {
-                    System.out.println("DEBUG: No contact hours found for " + moduleID);
                     continue;
                 }
 
