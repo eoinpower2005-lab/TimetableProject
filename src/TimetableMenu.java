@@ -101,7 +101,6 @@ public class TimetableMenu {
 
         List<TimetableSlot> timetableSlots = timetableManager.getStudentSlots(student, semesterInput);
         printTimetableSlots(timetableSlots);
-        //System.exit(0);
     }
 
     /**
@@ -157,7 +156,6 @@ public class TimetableMenu {
 
         List<TimetableSlot> timetableSlots = timetableManager.getLecturerSlots(lecturer, semesterInput);
         printTimetableSlots(timetableSlots);
-        //System.exit(0);
     }
 
     /**
@@ -227,7 +225,6 @@ public class TimetableMenu {
 
         List<TimetableSlot> timetableSlots = timetableManager.getModuleSlots(moduleCode, semesterInput);
         printTimetableSlots(timetableSlots);
-        //System.exit(0);
     }
 
     /**
@@ -248,7 +245,6 @@ public class TimetableMenu {
 
         List<TimetableSlot> timetableSlots = timetableManager.getProgrammeSlots(programmeCode, semesterInput);
         printTimetableSlots(timetableSlots);
-        //System.exit(0);
     }
 
     /**
@@ -269,7 +265,6 @@ public class TimetableMenu {
 
         List<TimetableSlot> timetableSlots = timetableManager.getRoomSlots(roomID, semesterInput);
         printTimetableSlots(timetableSlots);
-        //System.exit(0);
     }
 
     /**
@@ -307,7 +302,6 @@ public class TimetableMenu {
 
         List<TimetableSlot> timetableSlots = timetableManager.getStudentSlots(student, semesterInput);
         printTimetableSlots(timetableSlots);
-        //System.exit(0);
     }
 
     /**
@@ -344,7 +338,6 @@ public class TimetableMenu {
 
         List<TimetableSlot> timetableSlots = timetableManager.getLecturerSlots(lecturer, semesterInput);
         printTimetableSlots(timetableSlots);
-        //System.exit(0);
     }
 
     /**
