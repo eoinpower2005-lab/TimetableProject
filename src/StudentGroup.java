@@ -6,8 +6,8 @@
  * Student groups are split into sub-groups for labs and tutorials.
  * The capacity of a room is compared against the size of the sub-groups.
 
- */ //
-public class StudentGroup { //
+ */
+public class StudentGroup {
     private String groupID; //ID for the group so it can be identified "LM124H1S1_CS4141_Lab1"
     private String programmeID;
     private int programmeYear;
@@ -18,29 +18,29 @@ public class StudentGroup { //
         this.programmeID = programmeID;
         this.programmeYear = programmeYear;
         this.groupSize = groupSize;
-    } //
+    }
     public String getGroupID() {
         return groupID;
-    } //
-    public void setGroupID(String groupID) { //
+    }
+    public void setGroupID(String groupID) {
         this.groupID = this.groupID;
-    } //
+    }
     public String getProgrammeID() {
         return programmeID;
-    } //
+    }
     public void setProgrammeID(String programmeID) {
         this.programmeID = programmeID;
-    } //
+    }
     public int getProgrammeYear() {
         return programmeYear;
-    } //
+    }
     public void setProgrammeYear(int programmeYear) {
         this.programmeYear = programmeYear;
-    } //
-    public int getGroupSize() { //
+    }
+    public int getGroupSize() {
         return groupSize;
     }
     public void setGroupSize(int groupSize) {
         this.groupSize = groupSize;
-    } //
-} //
+    }
+}
