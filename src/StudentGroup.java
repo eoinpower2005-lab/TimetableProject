@@ -39,7 +39,7 @@ public class StudentGroup {
     }
     public int getGroupSize() {
         return groupSize;
-    } //
+    }
     public void setGroupSize(int groupSize) {
         this.groupSize = groupSize;
     }
