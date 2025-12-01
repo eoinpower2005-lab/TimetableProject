@@ -114,10 +114,18 @@ public abstract class User {
         return role;
     }
 
+    /**
+     * setter method to set a new timetable id
+     * @param timetableID the new timetable id
+     */
     public void setTimetableID(String timetableID) {
         this.timetableID = timetableID;
     }
 
+    /**
+     * Getter method to return the timetable id
+     * @return The timetable id
+     */
     public String getTimetableID() {
         return timetableID;
     }
