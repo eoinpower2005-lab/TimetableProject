@@ -518,10 +518,10 @@ public class timetableManager {
      * @param lecturerName
      * @return
      */
-    private boolean isSlotUsed(String day, String startTime, String endTime, String timetableID, String roomID, int semester, String lecturerName) { //
-        return clashOccurs(day, startTime, endTime, roomID, semester, lecturerName, timetableID); //
-    } //
-//
+    private boolean isSlotUsed(String day, String startTime, String endTime, String timetableID, String roomID, int semester, String lecturerName) {
+        return clashOccurs(day, startTime, endTime, roomID, semester, lecturerName, timetableID);
+    }
+
     /**
      *
      * @param day           the day of the week on which the class is scheduled
@@ -535,28 +535,28 @@ public class timetableManager {
      * @param timetableID   the ID of the timetable entry being evaluated (to avoid self-clash)
      * @return the ID of a suitable available room
      */
-    private String isRoomSuitable(String day, String classType, int groupSize, List<Rooms> roomsList, String startTime, String endTime, int semester, String lecturerName, String timetableID) { //
-        for (Rooms r : roomsList) { //
-            String roomType = r.getType(); //
-            int capacity = r.getRoomCapacity(); //
+    private String isRoomSuitable(String day, String classType, int groupSize, List<Rooms> roomsList, String startTime, String endTime, int semester, String lecturerName, String timetableID) {
+        for (Rooms r : roomsList) {
+            String roomType = r.getType();
+            int capacity = r.getRoomCapacity();
 
-            boolean isLabRoom = roomType.equalsIgnoreCase("CSlab"); //
-            boolean isTeachingRoom = roomType.equalsIgnoreCase("teaching"); //
+            boolean isLabRoom = roomType.equalsIgnoreCase("CSlab");
+            boolean isTeachingRoom = roomType.equalsIgnoreCase("teaching");
 
-            boolean roomTypeMatches = (classType.equalsIgnoreCase("lab") && isLabRoom) || (!classType.equalsIgnoreCase("lab") && isTeachingRoom); //
-            if (!roomTypeMatches) { //
-                continue; //
-            } //
+            boolean roomTypeMatches = (classType.equalsIgnoreCase("lab") && isLabRoom) || (!classType.equalsIgnoreCase("lab") && isTeachingRoom);
+            if (!roomTypeMatches) {
+                continue;
+            }
 
-            if (capacity < groupSize) { //
-                continue; //
-            } //
+            if (capacity < groupSize) {
+                continue;
+            }
 
-            if (!clashOccurs(day, startTime, endTime, r.getRoomId(), semester, lecturerName, timetableID)) { //
-                return r.getRoomId(); //
-            } //
-        } //
-        return "TBA"; //
+            if (!clashOccurs(day, startTime, endTime, r.getRoomId(), semester, lecturerName, timetableID)) {
+                return r.getRoomId();
+            }
+        }
+        return "TBA";
     } //
 
     public void writeGeneratedTimetableToCSV(String filename) {
