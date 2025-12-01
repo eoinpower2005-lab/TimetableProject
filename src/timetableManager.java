@@ -286,6 +286,42 @@ public class timetableManager {
      * @param moduleContactHoursList is the list of all the loaded contact-hour records
      * @return the ModuleContactHours object for this module
      */
+    private ModuleContactHours getContactHours( String moduleCode, List<ModuleContactHours> moduleContactHoursList) {
+        for (ModuleContactHours m : moduleContactHoursList) {
+            if (m.getModuleCode().equals(moduleCode)) {
+                return m;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * This method gets the staff assignment for a given module and class type.
+     * The method searches through a list of StaffAssignment objects and looks for an entry whose module code and
+     * class type both match the values passed into the method
+     * During every search a debugging output is printed showing each comparison seeing if a match was found.
+     * A StaffAssignment object identifies which lecturer is teaching the module, and is used during timetable
+     * generation to ensure that the lecturer is assigned to each scheduled class.
+     * If no staff is assigned to that specific module the method returns null.
+     * @param moduleCode the module code for which the lecturer is assigned to.
+     * @param classType the class type that is assigned to the scheduled module e.g. "lecture", "lab", "tutorial"
+     * @param staffAssignmentList this is the list of staff assignments loaded from CSV
+     * @return the matching StaffAssignment object or null if there's no matches
+     */
+
+    private StaffAssignment getStaffAssignment(String moduleCode, String classType, List<StaffAssignment> staffAssignmentList) {
+        System.out.println("Looking for staff assignment: module = " + moduleCode + ", classType = " + classType);
+        for (StaffAssignment s : staffAssignmentList) {
+            System.out.println("    checking against: " + s.getModuleCode() + ", " + s.getClassType());
+            if (s.getModuleCode().equalsIgnoreCase(moduleCode) && s.getClassType().equalsIgnoreCase(classType)) {
+                System.out.println("    -> Match");
+                return s;
+            }
+        }
+        System.out.println("    -> No Match found, returns null");
+        return null;
+    }
+
 
 
 
