@@ -10,7 +10,7 @@ import java.util.List;
  * which module each student group should be scheduled for based on their programme, year of study and the semester
  * that was selected
  * Stores programme information (programmeID e.g. "LM121", programmeYear e.g. year 1,2,3,4, programmeSemester e.g. 1or2)
- * moduleID e.g. "CS4013").
+ * moduleID e.g. "CS4013".
  */
 public class Programme {
     private String programmeID;
