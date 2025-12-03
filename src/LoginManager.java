@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * responsible for reading users from a csv file and authenticating login
  */
-public class LoginManager {
+public class LoginManager{
     private List<User> users;
 
     /**
