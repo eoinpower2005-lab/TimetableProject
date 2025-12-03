@@ -436,7 +436,74 @@ public class timetableManager {
      * @param semester the semseter number (e.g. 1 or 2) to match the semester of the college year.
      */
 
+    public void generateTimetable(int semester)  {
+        List<Programme> programmeList = loadProgrammeStructureCSVData("src/resources/Programme_structure.csv");
+        List<ModuleContactHours> moduleContactHoursList = loadModuleContactHoursCSVData("src/resources/Module_contact_hours.csv");
+        List<Rooms> roomsList = loadRoomsCSVData("src/resources/Rooms.csv");
+        List<StaffAssignment> staffAssignmentList = loadStaffAssignmentCSVData("src/resources/Staff_assignment.csv");
+        List<StudentRecords> moduleEnrollmentList = loadModuleEnrollmentCSVData("src/resources/Module_Enrollment.csv");
+        List<StudentGroup> studentGroupList = loadStudentGroupCSVData("src/resources/Student_Groups.csv");
 
+        String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+        String[] timeSlots = {"09:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00", "16:00-17:00", "17:00-18:00"};
+
+        for (StudentGroup g : studentGroupList) {
+            String timetableID = g.getGroupID();
+            for (Programme p : programmeList) {
+                if (p.getProgrammeSemester() != semester) {
+                    continue;
+                }
+
+                if (!p.getProgrammeID().equals(g.getProgrammeID()) || p.getProgrammeYear() != g.getProgrammeYear())  {
+                    continue;
+                }
+
+                String moduleID = p.getModuleID();
+
+                ModuleContactHours m = getContactHours(moduleID, moduleContactHoursList);
+                if (m == null)  {
+                    continue;
+                }
+
+                try  {
+                    int requiredLectureHours = m.getLectureHours();
+
+                    if (requiredLectureHours > 0)  {
+                        String firstTimetableID = null;
+                        for (TimetableSlot slot : timetableSlots)  {
+                            if (slot.getSemester() == semester && slot.getModule().equals(moduleID) && slot.getClassType() == ClassType.LECTURE)  {
+                                firstTimetableID = slot.getTimetableID();
+                                break;
+                            }
+                        }
+
+                        if (firstTimetableID == null)  {
+                            scheduleClass("lecture", moduleID, m.getLectureHours(), timetableID, semester, days, timeSlots, staffAssignmentList, roomsList, g.getGroupSize());
+                        }
+                        else  {
+                            for (int i=0; i<timetableSlots.size(); i++)  {
+                                TimetableSlot slot = timetableSlots.get(i);
+                                if (slot.getSemester() == semester && slot.getModule().equals(moduleID) && slot.getClassType() == ClassType.LECTURE && slot.getTimetableID().equals(firstTimetableID))  {
+                                    TimetableSlot newSlot = new TimetableSlot(slot.getDay(), slot.getStartTime(), slot.getEndTime(), slot.getModule(), slot.getClassType(), slot.getLecturerName(), slot.getRoomID(), slot.getSemester(), timetableID);
+                                    timetableSlots.add(newSlot);
+                                }
+                            }
+                        }
+                    }
+
+                    if (m.getLabHours() > 0)  {
+                        scheduleClass("lab", moduleID, m.getLabHours(), timetableID, semester, days, timeSlots, staffAssignmentList, roomsList, g.getGroupSize());
+                    }
+
+                    if (m.getTutorialHours() > 0)  {
+                        scheduleClass("tutorial", moduleID, m.getTutorialHours(), timetableID, semester, days, timeSlots, staffAssignmentList, roomsList, g.getGroupSize());
+                    }
+                } catch (Exception e)  {
+                    System.out.println("Error: moduled skipped " + moduleID + " due to a clash " + e.getMessage());
+                }
+            }
+        }
+    }
 
     /**
      *
