@@ -569,7 +569,20 @@ public class timetableManager {
      * @param filename the name and path of the CSV file to write the timetable to.
      */
 
+    public void writeGeneratedTimetableToCSV(String filename)  {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(filename)))  {
+            pw.println("day, start_time, end_time, module_code, class_type, assigned_lecturer, room_id, semester, timetable_id");
 
+            for (TimetableSlot timetableSlot : timetableSlots) {
+                pw.printf("%s, %s, %s, %s, %s, %s, %s, %d, %s%n", timetableSlot.getDay(), timetableSlot.getStartTime(),
+                        timetableSlot.getEndTime(), timetableSlot.getModule(), timetableSlot.getClassType(),
+                        timetableSlot.getLecturerName(), timetableSlot.getRoomID(), timetableSlot.getSemester(),
+                        timetableSlot.getTimetableID());
+            }
+        } catch (IOException e) {
+            System.err.println("Error writing to a CSV file that does not exist: " + filename);
+        }
+    }
 
     public List<TimetableSlot> getTimetableSlots() {
         return timetableSlots;
